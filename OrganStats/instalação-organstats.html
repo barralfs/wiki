@@ -1,0 +1,63 @@
+<!--
+title: Instalar OrganStats
+description: Instalação e Configuração
+published: true
+date: 2026-01-26T13:37:12.132Z
+tags: organstats
+editor: ckeditor
+dateCreated: 2025-10-22T16:36:41.347Z
+-->
+
+<p>Autor Original: Lucas Coutinho</p>
+<p><strong>Passo 1</strong>: Realizar cópia dos arquivos "Instalar.exe" e "ServiceIntegradorOrganStats" presentes neste caminho:</p>
+<p>"Nextcloud\FrontsysSistemas\Instalar\IntegradorOrganStats"</p>
+<p><strong>Passo 2</strong>: Colar na pasta raiz do Organ. Lembre-se de deixar a pasta aberta, pois, ainda precisaremos de informações do arquivo "Config".</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/dPuWYd4Znz.jpg"></figure>
+<p>&nbsp;</p>
+<p>Parametrizar o Arquivo Config</p>
+<p><strong>Passo 1</strong>: Pegar as informações do 'Config' do IntegradorOrganStats.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/tXbGkg4wMj.jpg"></figure>
+<p>&nbsp;</p>
+<p><strong>Passo 2</strong>: Copiar o texto do Integrador e jogar no 'Config' Organ. É necessário manter a ordem dos campos.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/6zc7QZ1oHJ.jpg"></figure>
+<p>&nbsp;</p>
+<p>Criar Cliente no AppControl</p>
+<p><strong>Passo 1</strong>: Acessar o site para o cadastro.</p>
+<p>"https://frontsys.com.br/util/appcontrol/"<br>&nbsp;</p>
+<p><strong>Passo 2</strong>: Entrar na aba 'Clientes'.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/ZEgD3Kf0ZC.jpg"></figure>
+<p>&nbsp;</p>
+<p><strong>Passo 3</strong>: Verifique se o cliente já possui um cadastro existente e, se não for o caso, vamos criar um novo cadastro.<br>&nbsp;</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/XIqD-GtPMh.jpg"></figure>
+<p>&nbsp;</p>
+<p><strong>Passo 4</strong>: Certifique-se de que o cliente esteja com status "ATIVO" e, depois, será necessário pegar as seguintes informações: ID do Cliente,&nbsp;CNPJ e&nbsp;Chave.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/D2jif0KmkI.jpg"></figure>
+<p>&nbsp;</p>
+<p><strong>Passo 5</strong>: No 'Config' do Organ adicionaremos as informações reunidas no passo anterior.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/CSvf7-Aq36.jpg"></figure>
+<p>&nbsp;</p>
+<p>Processo de Instalação</p>
+<p><strong>Passo 1</strong>: Execute o CMD como administrador e em seguida digite:</p>
+<pre><code class="language-plaintext">cd C:\Organ (Pasta Raiz do Organ)
+(Enter)
+ServiceIntegradorOrganStats /Install
+(Enter)</code></pre>
+<p>&nbsp;</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/hd-XrMtCrb.jpg"></figure>
+<p>&nbsp;</p>
+<p>Iniciando Serviço</p>
+<p>Abrir Menu Iniciar &gt; Serviços &gt; IntegradorOrganStats &gt; Iniciar.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/EB-rHeW1TH.jpg"></figure>
+<p>&nbsp;</p>
+<p>Verificar Envio de Dados</p>
+<p><strong>Passo 1</strong>: Na pasta raiz do Organ, será criado um 'Log'. Ao abrirmos ela, encontraremos um arquivo de texto que irá nos dizer se os dados estão sendo enviados.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/GcSMuOjZKz.jpg"></figure>
+<p>&nbsp;</p>
+<p><strong>Passo 2</strong>:&nbsp;Verificar se o envio foi realizado com sucesso, lembrando que devemos esperar 1 minuto para que o arquivo seja atualizado.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/D8mGbs0qX4.jpg"></figure>
+<p>&nbsp;</p>
+<p>Configurar Tempo de Atualização de Dados</p>
+<p>No 'Config' do Organ, vamos alterar o tempo de envio das informações para o aplicativo. Deixamos o 'IntervaloMinutos' como 15, para garantir que o processo não sobrecarregue o sistema.</p>
+<figure class="image"><img src="https://tawk.link/5fe23e95a8a254155ab59754/kb/attachments/UfbUtQH73P.jpg"></figure>
+<p>&nbsp;</p>
+<p>O passo final é reiniciar o serviço do Integrador e a instalação estará completa.</p>
