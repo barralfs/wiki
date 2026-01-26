@@ -1,0 +1,78 @@
+<!--
+title: Configuração NuvemShop
+description: Como realizar as configurações necessárias para trabalhar com o NuvemShop.
+published: false
+date: 2026-01-26T17:06:37.489Z
+tags: organ, integrador
+editor: ckeditor
+dateCreated: 2026-01-26T17:06:37.488Z
+-->
+
+<p>Realizando o Login na Plataforma</p>
+<p>&nbsp;</p>
+<p><strong>Passo 1</strong>: Acessamos a tela de 'Empresas', dentro de 'Configurações do Sistema'.</p>
+<p>Foto</p>
+<p><strong>Passo 2</strong>: Clicar em 'Consultar ID', conforme a imagem acima.</p>
+<p>FOTO</p>
+<p><strong>Passo 3</strong>: Seremos direcionados ao site e nele vamos realizar o login, com as informações obtidas com o responsável pelo NuvemShop.</p>
+<p>FOTO</p>
+<p><strong>Passo 4</strong>: Vamos nos certificar de que o ID da loja foi devidamente carregado na tela de 'Empresas'.</p>
+<p>FOTO</p>
+<p>Ajustando o Cadastro dos Produtos</p>
+<p><strong>Passo 1</strong>: Abrir o módulo de 'Produtos e Serviços', dentro de 'Cadastros'.&nbsp;</p>
+<p>FOTO</p>
+<p><strong>Passo 2</strong>: Conferir se o campo 'Tipo Produto' está preenchido como 00 - Mercadoria Para Revenda ou 04 - Produto Acabado.</p>
+<p>FOTO</p>
+<p><strong>Passo 3</strong>: Conferir se o campo 'Sincronizar Marketplace' está marcado.</p>
+<p>FOTO</p>
+<p><strong>Passo 4</strong>: Informamos o 'Peso Bruto' do produto, dentro de 'Geral', da aba de 'Impostos'.</p>
+<p><strong>Observação</strong>: O preenchimento do campo é extremamente importante, pois é levado em conta no cálculo de frete.</p>
+<p>FOTO</p>
+<p><strong>Passo 5</strong>: Na aba de 'Outras Informações', realizaremos o preenchimento dos seguintes campos.</p>
+<p>FOTO</p>
+<p><strong>Título da SEO</strong>: Será o nome do produto exibido na plataforma.</p>
+<p><strong>Descrição da SEO</strong>: Descrição simplificada do produto, deve ser objetiva. Os caracteres preenchidos aqui podem ativar buscas no Google.</p>
+<p><strong>Descrição Completa</strong>: Especificação completa das informações do produto, como a sua composição, dimensões, peso e observações em geral.</p>
+<p>Estruturando as Fotos dos Produtos</p>
+<p><strong>Passo 1</strong>: Criar a pasta 'Fotos', na raiz do Organ.</p>
+<p>FOTO</p>
+<p><strong>Passo 2</strong>: Vamos inserir novas pastas, dentro de 'Fotos', que vão corresponder ao 'Código do Produto'.</p>
+<p>FOTO</p>
+<p><strong>Passo 3</strong>: Dentro das pastas com o código, inserimos os arquivos de imagem. Eles deverão ser nomeados com uma numeração, conforme exemplificado abaixo. A numeração corresponderá à relevância das fotos, portanto a foto '01', será exibida primeiro e assim sucessivamente.</p>
+<p>FOTO</p>
+<p>Configurando os Preços, Local de Estoque e Quantidades</p>
+<p><strong>Passo 1</strong>: Identificar a tabela 'CONFIG_SQL' no banco de dados e criar a sentença 'NUVEMSHOP_PRODUTO'.</p>
+<p>FOTO</p>
+<p><strong>Passo 2</strong>: Conforme a necessidade do cliente, podemos gerar um <i>select </i>que retorne as informações desejadas, como preço, empresa, local de estoque e quantidades a serem enviadas.&nbsp;</p>
+<p>FOTO</p>
+<p>Segue modelo de sql com a consulta realizada, vale ressaltar que este não é um padrão oficial, é apenas um exemplo para se ter uma ideia. <strong>CUIDADO! Existem informações específicas da regra de negócio do cliente.</strong></p>
+<pre><code class="language-plaintext">SELECT
+  CAST(:ID_EMPRESA AS INTEGER) AS ID_EMPRESA,
+  PD.ID_PRODUTO,
+  PD.ID_CATEGORIA_PRODUTO,
+  PD.ID_SUBCATEGORIA_PRODUTO,
+  MP.DESCRICAO AS MARCA,
+  PD.DESCRICAO,
+  SEO_TITULO,
+  SEO_DESCRICAO,
+  MARKETPLACE_DESCRICAO,
+  PD.PRECO AS PRECO_PRODUTO,
+  PD.PESO_BRUTO,
+  PD.LARGURA,
+  PD.ALTURA,
+  PD.PROFUNDIDADE,
+  PD.CONTROLAR_ESTOQUE,
+  COALESCE((SELECT FIRST 1 CODIGO FROM CODIGO_BARRAS_PRODUTO WHERE ID_PRODUTO = PD.ID_PRODUTO ORDER BY CHAR_LENGTH(CODIGO)), CODIGO) AS COD_BARRAS,
+  (SELECT SALDO_ESTOQUE FROM SP_ESTOQUE_SALDO(:ID_EMPRESA, PD.ID_PRODUTO, 0, CURRENT_DATE, 1)) AS QUANT_ESTOQUE_ATUAL,
+  CASE
+    WHEN (INATIVO = 'S') THEN 'S'
+    WHEN (SINCRONIZAR_MARKETPLACE = 'N') THEN 'S'
+    WHEN (TIPO_PRODUTO NOT IN (0, 4)) THEN 'S'
+    ELSE 'N'
+  END AS INATIVO,
+  IP.IMAGEM
+FROM PRODUTO PD
+LEFT OUTER JOIN IMAGEM_PRODUTO IP USING(ID_PRODUTO)
+LEFT OUTER JOIN MARCA_PRODUTO MP USING (ID_MARCA_PRODUTO)
+WHERE ((PD.ID_PRODUTO = :ID_PRODUTO) OR (:ID_PRODUTO = 0)) AND (TIPO_PRODUTO IN (0, 4))</code></pre>
+<p><strong>Final</strong>: Feitas as configurações, vamos realizar a instalação do IntegradorMarketPlace, para que as informações sejam carregadas automaticamente.<strong>Final</strong>: Feitas as configurações, vamos realizar a instalação do IntegradorMarketPlace, para que as informações sejam carregadas automaticamente.</p>
