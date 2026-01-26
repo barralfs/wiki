@@ -1,8 +1,8 @@
 <!--
 title: Fórmula Preço de Produto
 description: 
-published: false
-date: 2026-01-26T17:19:10.139Z
+published: true
+date: 2026-01-26T17:20:02.078Z
 tags: organ
 editor: ckeditor
 dateCreated: 2026-01-26T17:19:10.139Z
@@ -10,7 +10,7 @@ dateCreated: 2026-01-26T17:19:10.139Z
 
 <h1>Configuração e Parametrização</h1>
 <p><strong>Primeiro Passo: </strong>criar registro na tabela CONFIG_SQL com o nome '<strong>FORMULA_PRECO_PRODUTO</strong>'.</p>
-<figure class="image"><img src="/formulaprecoproduto/1.jpg"></figure>
+<figure class="image image_resized" style="width:77.83%;"><img src="/formulaprecoproduto/1.jpg"></figure>
 <p>A sentença deverá ser customizada de acordo com a necessidade do cliente e como parâmetros, podemos utilizar:&nbsp;<strong>ID_EMPRESA, ID_PRODUTO, ID_PESSOA, MOVIMENTO.</strong> <strong>Obs: ID_PRODUTO é um parâmetro obrigatório para o correto funcionamento.</strong></p>
 <p>&nbsp;</p>
 <p><strong>&nbsp;Segundo Passo:</strong> entendendo melhor as possibilidades do recurso. A seguir serão exibidos dois exemplos de sentença, um voltado para tratar preços de multi-empresas e outro para tratar preços para clientes específicos. Vale ressaltar que este recurso abre um leque de possibilidades e pode ser aplicado de diversas formas distintas, estes são apenas dois exemplos.</p>
@@ -27,7 +27,8 @@ dateCreated: 2026-01-26T17:19:10.139Z
   END AS PRECO
 FROM PRODUTO
 WHERE (ID_PRODUTO = :ID_PRODUTO)</code></pre>
-<figure class="image"><img src="/formulaprecoproduto/2.jpg"></figure>
+<p>&nbsp;</p>
+<figure class="image image_resized" style="width:77.97%;"><img src="/formulaprecoproduto/2.jpg"></figure>
 <hr>
 <p>Tratar aumento de preços para clientes específicos:</p>
 <pre><code class="language-plaintext">SELECT
@@ -41,14 +42,15 @@ FROM PRODUTO, PESSOA
 WHERE
   (PRODUTO.ID_PRODUTO = :ID_PRODUTO) AND
   (PESSOA.ID_PESSOA = :ID_PESSOA)</code></pre>
-<figure class="image"><img src="/formulaprecoproduto/3.jpg"></figure>
+<p>&nbsp;</p>
+<figure class="image image_resized" style="width:80.6%;"><img src="/formulaprecoproduto/3.jpg"></figure>
 <hr>
 <p><strong>Terceiro Passo:</strong> ajustar campo fórmula nas configurações do sistema.</p>
 <p><strong>-&nbsp; Tipo Receita:</strong></p>
-<figure class="image"><img src="/formulaprecoproduto/4.jpg"></figure>
+<figure class="image image_resized" style="width:80.64%;"><img src="/formulaprecoproduto/4.jpg"></figure>
 <p><strong>- Tipo Pedido Venda:</strong></p>
-<figure class="image"><img src="/formulaprecoproduto/5.jpg"></figure>
+<figure class="image image_resized" style="width:80.53%;"><img src="/formulaprecoproduto/5.jpg"></figure>
 <p><strong>-&nbsp; Configuração -&gt; Empresa -&gt; Campo Preço Padrão Orçamentos:</strong></p>
-<figure class="image"><img src="/formulaprecoproduto/6.jpg"></figure>
+<figure class="image image_resized" style="width:80.26%;"><img src="/formulaprecoproduto/6.jpg"></figure>
 <hr>
 <p>Feito isso, o sistema já irá respeitar as configurações realizadas na fórmula.</p>
