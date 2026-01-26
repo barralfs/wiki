@@ -1,0 +1,39 @@
+<!--
+title: Layout de Código de Barras
+description: Passo a passo de como estruturar a leitura do código de barras gerado por uma balança.
+published: true
+date: 2026-01-26T17:35:52.591Z
+tags: organ
+editor: ckeditor
+dateCreated: 2026-01-26T17:35:52.591Z
+-->
+
+<h1>Estrutura do Código de Barras</h1>
+<p>O código possui 13 dígitos e pode ser dividido em 3 partes.</p>
+<figure class="image image_resized" style="width:53.41%;"><img src="/layoutcodigo/1.png"></figure>
+<p>Parte 1: o país ao qual o produto se refere.</p>
+<p>Parte 2: o código do produto.</p>
+<p>Parte 3: a quantidade do produto ou o seu preço total.</p>
+<p>Parte 4: dígito verificador, este é gerado automaticamente.</p>
+<h1>Compreendendo a 3ª parte do código de barras.</h1>
+<p>Existem dois tipos de comportamento de leitura para a terceira parte do código. Um informa a quantidade do produto e o outro informa o seu preço total.</p>
+<p><strong>Código com Quantidade do Produto</strong></p>
+<p>O sistema interpreta o código de barras dessa forma para o caso do produto cadastrado ser considerado 'Pesável'.</p>
+<figure class="image"><img src="/layoutcodigo/2.jpg"></figure>
+<p>É possível parametrizar para que todos os códigos sejam lidos como quantidade. Para isso é necessário marcar o parâmetro 'Ler Quantidade de Produtos Unitários', dentro do cadastro de Layout de Código de Barras.</p>
+<figure class="image"><img src="/layoutcodigo/3.jpg"></figure>
+<p>Pela configuração acima teremos a segunda parte informando o código do produto, começando na casa 2 e com 4 casas de tamanho. A terceira parte do código informa a quantidade começando na casa 8, com 5 casas de tamanho e com 3 casas decimais.</p>
+<figure class="image image_resized" style="width:48.11%;"><img src="/layoutcodigo/4.png"></figure>
+<p>Código do produto: 9012</p>
+<p>Quantidade: 12,345</p>
+<p>Com a informação do código do produto o sistema conseguirá buscar o seu valor unitário e, assim, realizar um cálculo levando em conta a quantidade lida para encontrar o preço total dessa venda.</p>
+<p>Veja alguns exemplos de etiquetas que são gerados na balança da Toledo.</p>
+<figure class="image"><img src="/layoutcodigo/5.gif"></figure>
+<h1><strong>Código com Preço do Produto</strong></h1>
+<p>Quando o produto não é assinalado como pesável o sistema irá interpretar a terceira parte do código de barras como seu preço total. Também é possível parametrizar para que os códigos de barras sejam lidos apenas dessa maneira, assinalando a opção 'Ler Preço de Produtos Pesáveis'.</p>
+<figure class="image"><img src="/layoutcodigo/6.jpg"></figure>
+<p>Pela configuração acima teremos a segunda parte informando o código do produto, começando na casa 2 e com 4 casas de tamanho. A terceira parte do código informa o preço total começando na casa 8, com 5 casas de tamanho e com 2 casas decimais.</p>
+<figure class="image image_resized" style="width:46.68%;"><img src="/layoutcodigo/7.png"></figure>
+<p>Código do produto: 9012</p>
+<p>Preço: R$ 123,45</p>
+<p>Com a informação do código do produto, o sistema conseguirá buscar o seu preço unitário e, assim, realizar realizar um cálculo levando em conta o preço lido para encontrar a quantidade total dessa venda.</p>
