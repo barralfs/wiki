@@ -2,7 +2,7 @@
 title: Configuração NuvemShop
 description: Como realizar as configurações necessárias para trabalhar com o NuvemShop.
 published: false
-date: 2026-01-26T17:09:00.743Z
+date: 2026-01-26T17:12:30.741Z
 tags: organ, integrador
 editor: ckeditor
 dateCreated: 2026-01-26T17:06:37.488Z
@@ -10,39 +10,37 @@ dateCreated: 2026-01-26T17:06:37.488Z
 
 <h1>Realizando o Login na Plataforma</h1>
 <p><strong>Passo 1</strong>: Acessamos a tela de 'Empresas', dentro de 'Configurações do Sistema'.</p>
-<p>&nbsp;</p>
+<figure class="image"><img src="/integrador-nuvemshop/1.jpg"></figure>
 <p><strong>Passo 2</strong>: Clicar em 'Consultar ID', conforme a imagem acima.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/2.jpg"></figure>
 <p><strong>Passo 3</strong>: Seremos direcionados ao site e nele vamos realizar o login, com as informações obtidas com o responsável pelo NuvemShop.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/3.jpg"></figure>
 <p><strong>Passo 4</strong>: Vamos nos certificar de que o ID da loja foi devidamente carregado na tela de 'Empresas'.</p>
-<p>FOTO</p>
-<p>Ajustando o Cadastro dos Produtos</p>
+<h1>Ajustando o Cadastro dos Produtos</h1>
 <p><strong>Passo 1</strong>: Abrir o módulo de 'Produtos e Serviços', dentro de 'Cadastros'.&nbsp;</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/4.jpg"></figure>
 <p><strong>Passo 2</strong>: Conferir se o campo 'Tipo Produto' está preenchido como 00 - Mercadoria Para Revenda ou 04 - Produto Acabado.</p>
 <p><strong>Passo 3</strong>: Conferir se o campo 'Sincronizar Marketplace' está marcado.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/5.jpg"></figure>
 <p><strong>Passo 4</strong>: Informamos o 'Peso Bruto' do produto, dentro de 'Geral', da aba de 'Impostos'.</p>
 <p><strong>Observação</strong>: O preenchimento do campo é extremamente importante, pois é levado em conta no cálculo de frete.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/6.jpg"></figure>
 <p><strong>Passo 5</strong>: Na aba de 'Outras Informações', realizaremos o preenchimento dos seguintes campos.</p>
-<p>FOTO</p>
 <p><strong>Título da SEO</strong>: Será o nome do produto exibido na plataforma.</p>
 <p><strong>Descrição da SEO</strong>: Descrição simplificada do produto, deve ser objetiva. Os caracteres preenchidos aqui podem ativar buscas no Google.</p>
 <p><strong>Descrição Completa</strong>: Especificação completa das informações do produto, como a sua composição, dimensões, peso e observações em geral.</p>
 <h1>Estruturando as Fotos dos Produtos</h1>
 <p><strong>Passo 1</strong>: Criar a pasta 'Fotos', na raiz do Organ.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/7.jpg"></figure>
 <p><strong>Passo 2</strong>: Vamos inserir novas pastas, dentro de 'Fotos', que vão corresponder ao 'Código do Produto'.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/8.jpg"></figure>
 <p><strong>Passo 3</strong>: Dentro das pastas com o código, inserimos os arquivos de imagem. Eles deverão ser nomeados com uma numeração, conforme exemplificado abaixo. A numeração corresponderá à relevância das fotos, portanto a foto '01', será exibida primeiro e assim sucessivamente.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/9.jpg"></figure>
 <h1>Configurando os Preços, Local de Estoque e Quantidades</h1>
 <p><strong>Passo 1</strong>: Identificar a tabela 'CONFIG_SQL' no banco de dados e criar a sentença 'NUVEMSHOP_PRODUTO'.</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/10.jpg"></figure>
 <p><strong>Passo 2</strong>: Conforme a necessidade do cliente, podemos gerar um <i>select </i>que retorne as informações desejadas, como preço, empresa, local de estoque e quantidades a serem enviadas.&nbsp;</p>
-<p>FOTO</p>
+<figure class="image"><img src="/integrador-nuvemshop/11.jpg"></figure>
 <p>Segue modelo de sql com a consulta realizada, vale ressaltar que este não é um padrão oficial, é apenas um exemplo para se ter uma ideia. <strong>CUIDADO! Existem informações específicas da regra de negócio do cliente.</strong></p>
 <pre><code class="language-plaintext">SELECT
   CAST(:ID_EMPRESA AS INTEGER) AS ID_EMPRESA,
