@@ -1,0 +1,39 @@
+<!--
+title: Configuração Integrador Tintométrico
+description: 
+published: false
+date: 2026-01-26T16:41:24.910Z
+tags: organ, integrador
+editor: ckeditor
+dateCreated: 2026-01-26T16:41:24.910Z
+-->
+
+<p>Configurando uso do Integrador Tintométrico Qualyvinil no Organ.</p>
+<p>&nbsp;</p>
+<p>Na aba UTILITÁRIOS (1), selecione a opção CONFIGURAÇÕES DO SISTEMA (2), em seguida vá na aba EMPRESA (3) e se certifique de preencher o endereço do servidor onde se encontra instalado o sistema da QualyVinil de acordo com o formato exemplo na imagem (4).</p>
+<p>&nbsp;</p>
+<p>FOTO</p>
+<p>&nbsp;</p>
+<p>Logo após configurar o caminho na etapa anterior, instale o IntegradorTintometrico disponível no seguinte caminho:</p>
+<p>\Nextcloud\FrontsysSistemas\Instalar\IntegradorTintometrico</p>
+<p>&nbsp;</p>
+<p>FOTO</p>
+<p>&nbsp;</p>
+<p>A próxima etapa, é abrir o arquivo config.ini da pasta raiz do integrador, e verificar os apontamentos novamente.</p>
+<p>FOTO</p>
+<p>Depois de realizar os processos acima, será necessário instalar o serviço do integrador.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Para realizar tal processo, basta seguir o passo a passo a seguir:</p>
+<p>1 - Execute o CMD como Administrador<br><br>2 - Realize o seguinte comando para instalar o serviço:</p>
+<p>sc create IntegradorTintometrico binpath= "C:\IntegradorTintometrico\IntegradorTintometrico.exe"</p>
+<p>Obs.: o caminho deve ser o caminho do .exe do Integrador, como exemplificado acima</p>
+<p>3 - Após instalar o serviço, realize o comando para iniciar o serviço:</p>
+<p>sc start IntegradorTintometrico</p>
+<p>Feito esse processo, o serviço já estará executando no Windows.</p>
+<p>&nbsp;</p>
+<p>Importante lembrar de conferir as suas configurações na tela de serviços do Windows:</p>
+<p>FOTO</p>
+<p>Certifique-se que o Tipo de inicialização esteja como Automático.</p>
+<p>FOTO</p>
+<p>Também verifique se as configurações de recuperação estejam de acordo com o exemplo acima.</p>
+<p>Após realizar esses processos, o integrado já estará disponível para uso no Organ do cliente.</p>
