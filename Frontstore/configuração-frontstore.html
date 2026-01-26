@@ -1,0 +1,70 @@
+<!--
+title: Configurações FrontStore
+description: Entendendo o Funcionamento de Cada Configuração
+published: true
+date: 2026-01-26T17:27:35.150Z
+tags: frontstore
+editor: ckeditor
+dateCreated: 2026-01-26T17:27:35.150Z
+-->
+
+<h1>Entendendo as Configurações</h1>
+<p>Composto por configurações padrões do sistema e responsável pelo funcionamento do mesmo, encontra-se no topo do texto. Observe que existe o campo <strong>PortaPos </strong>nestas configurações. Este vai ser utilizado para definir onde serão impressos os documentos de fechamento de comandas, no exemplo seria na impressora conectada no USB.</p>
+<figure class="image"><img src="/conffrontstore/1.jpg"></figure>
+<h2>Entendendo o Parâmetro de PortaPos e Suas Funções</h2>
+<p>Existem quatro modos diferentes de realizar configurações para o <strong>PortaPos (COM, USB, TCP/IP, RAW)</strong>, vamos conhecer cada uma delas.</p>
+<p><strong>1º - COM: </strong>utilizada para comunicação serial, um exemplo seria a <strong>COM1</strong>. E este seria o layout utilizando esta configuração.</p>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=C:\Organ\Dados\DB_ORGAN.FDB
+Server=localhost
+Port=3050
+IdEmpresa=1
+PortaServidor=8081
+PortaPos=COM1</code></pre>
+<p><strong>2º - USB:</strong> utilizada para impressoras que estão conectadas na porta USB, sem emulação serial.</p>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=C:\Organ\Dados\DB_ORGAN.FDB
+Server=localhost
+Port=3050
+IdEmpresa=1
+PortaServidor=8081
+PortaPos=USB</code></pre>
+<p><strong>3º - TCP/IP:</strong>&nbsp;utilizado para comunicação direta com a impressora pela rede.</p>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=C:\Organ\Dados\DB_ORGAN.FDB
+Server=localhost
+Port=3050
+IdEmpresa=1
+PortaServidor=8081
+PortaPos=TCP:192.168.15.31:9100</code></pre>
+<p><strong>4º - RAW:</strong>&nbsp;será utilizado o nome de instalação da impressora.</p>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=C:\Organ\Dados\DB_ORGAN.FDB
+Server=localhost
+Port=3050
+IdEmpresa=1
+PortaServidor=8081
+PortaPos=RAW:Elgin i9</code></pre>
+<p>Para verificar o nome do dispositivo (impressora) abra as propriedades do mesmo.</p>
+<figure class="image"><img src="/conffrontstore/2.jpg"></figure>
+<h2>Configuração do Grupo de Impressão</h2>
+<p>Abaixo das configurações principais, temos as configurações dos grupos, o título [Grupo1] indica que as configurações estão válidas para o ID_GRUPO_PRODUTO = 1. Estas configurações vão servir para direcionar as impressões que serão realizadas de acordo com o grupo de cada produto.</p>
+<figure class="image"><img src="/conffrontstore/3.jpg"></figure>
+<p>Vamos entender as três configurações do grupo (<strong>PortaPOS, LinhasEntreCupons, ModeloPos</strong>).</p>
+<p><strong>PortaPOS </strong>- de acordo com os tópicos anteriores, foi demonstrado o funcionamento do mesmo. Esta configuração realizada no Grupo vai servir para direcionar será impresso o documento, exemplo, uma impressora no bar onde serão impressos as bebidas e outra na cozinha, onde serão preparados as porções.</p>
+<p><strong>LinhasEntreCupons</strong> - salta linhas entre as impressões para no caso de cortar o final (rodapé) do relatório.</p>
+<p><strong>ModeloPOS</strong> - altera as instruções de impressão enviada para a impressora. O modelo varia de 0 a 12 e por padrão é utilizado o modelo 1.</p>
+<pre><code class="language-plaintext">0 - ppTexto
+1 - ppEscPosEpson
+2 - ppEscBematech
+3 - ppEscDaruma
+4 - ppEscVox
+5 - ppEscDiebold
+6 - ppEscEpsonP2
+7 - ppCustomPos
+8 - ppEscPosStar
+9 - ppEscZJiang
+10 - ppEscGPrinter
+11 - ppEscDatecs
+12 - ppExterno</code></pre>
+<p><strong>IMPORTANTE! </strong>Se necessário solicitar impressão de documentos através do Organ (Gestão de Comandas), será necessário colocar a mesma configuração de <strong>PortaPos </strong>no config do Organ.</p>
