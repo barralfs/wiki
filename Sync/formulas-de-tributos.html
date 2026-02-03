@@ -1,0 +1,73 @@
+<!--
+title: Fórmulas de Tributos
+description: 
+published: true
+date: 2026-02-03T13:46:16.673Z
+tags: sync
+editor: ckeditor
+dateCreated: 2026-02-03T13:46:16.673Z
+-->
+
+<h1>Fórmulas de Tributos</h1>
+<p>Este artigo apresenta as <strong>fórmulas padrão para cadastro de tributos no Sync</strong>, para <strong>NF-e</strong> e <strong>NFS-e</strong>, e a <strong>ordem correta de preenchimento</strong>.</p>
+<p>O local de cadastro e edição dos tributos está descrito no artigo <a href="https://wiki.frontsys.com.br/pt-br/Sync/parametrizacao-tributos"><strong>Parametrização de tributos</strong></a>.</p>
+<p>As fórmulas devem ser cadastradas <strong>sempre nesta sequência</strong>:</p>
+<ol>
+  <li>Base Cálculo</li>
+  <li>Tributo Base</li>
+  <li>Alíquota</li>
+</ol>
+<h2>Fórmulas – NF-e</h2>
+<h3>ICMS</h3>
+<p><code>ISNULL(ITEM.ICMS_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_ALIQUOTA,0)</code></p>
+<h3>ICMS ST</h3>
+<p><code>ISNULL(ITEM.ICMS_ST_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_ST_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_ST_ALIQUOTA,0)</code></p>
+<h3>IPI</h3>
+<p><code>ISNULL(ITEM.IPI_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.IPI_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.IPI_ALIQUOTA,0)</code></p>
+<h3>PIS</h3>
+<p><code>ISNULL(ITEM.PIS_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.PIS_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.PIS_ALIQUOTA,0)</code></p>
+<h3>COFINS</h3>
+<p><code>ISNULL(ITEM.COFINS_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.COFINS_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.COFINS_ALIQUOTA,0)</code></p>
+<h3>ICMS FCP</h3>
+<p><code>ISNULL(ITEM.ICMS_FCP_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_FCP_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_FCP_ALIQUOTA,0)</code></p>
+<h3>ICMS ST FCP</h3>
+<p><code>ISNULL(ITEM.ICMS_ST_FCP_BASE_CALC,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_ST_FCP_VALOR,0)</code></p>
+<p><code>ISNULL(ITEM.ICMS_ST_FCP_ALIQUOTA,0)</code></p>
+<h2>Fórmulas – NFS-e</h2>
+<h3>INSS</h3>
+<p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
+<p><code>ISNULL(NOTA.TOTAL_RETENCAO_CP,0)</code></p>
+<p><code>ISNULL((ISNULL(NOTA.TOTAL_RETENCAO_CP,0)/NULLIF(NOTA.TOTAL_SERVICOS,0)*100),0)</code></p>
+<h3>ISS Retido</h3>
+<p><code>ISNULL(ITEM.ISSQN_BASE_CALC,0)</code></p>
+<p><code>CASE</code><br><code>WHEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0) &gt; 0</code><br><code>THEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0)</code><br><code>ELSE 0</code><br><code>END</code></p>
+<p><code>CASE</code><br><code>WHEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0) &gt; 0</code><br><code>THEN ISNULL(ITEM.ISSQN_ALIQUOTA,0)</code><br><code>ELSE 0</code><br><code>END</code></p>
+<h3>PIS, COFINS e CSLL Retidos</h3>
+<p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
+<p><code>CASE</code><br><code>WHEN NOTA.TOTAL_PIS &gt; 0 AND NOTA.TOTAL_COFINS &gt; 0 AND NOTA.TOTAL_RETENCAO_CSLL &gt; 0</code><br><code>THEN ISNULL((NOTA.TOTAL_PIS + NOTA.TOTAL_COFINS + NOTA.TOTAL_RETENCAO_CSLL),0)</code><br><code>ELSE 0</code><br><code>END</code></p>
+<p><code>ISNULL('4,65',0)</code></p>
+<h3>IRRF</h3>
+<p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
+<p><code>ISNULL(NOTA.TOTAL_RETENCAO_IRRF,0)</code></p>
+<p><code>ISNULL((ISNULL(NOTA.TOTAL_RETENCAO_IRRF,0)/NULLIF(NOTA.TOTAL_SERVICOS,0)*100),0)</code></p>
+<h3>PIS</h3>
+<p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
+<p><code>ISNULL(NOTA.TOTAL_PIS,0)</code></p>
+<p><code>ISNULL((ISNULL(NOTA.TOTAL_PIS,0)/NULLIF(NOTA.TOTAL_SERVICOS,0)*100),0)</code></p>
+<h3>COFINS</h3>
+<p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
+<p><code>ISNULL(NOTA.TOTAL_COFINS,0)</code></p>
+<p><code>ISNULL((ISNULL(NOTA.TOTAL_COFINS,0)/NULLIF(NOTA.TOTAL_SERVICOS,0)*100),0)</code></p>
