@@ -1,0 +1,25 @@
+<!--
+title: Reiniciar NSU
+description: 
+published: true
+date: 2026-02-03T12:56:55.701Z
+tags: sync
+editor: ckeditor
+dateCreated: 2026-02-03T12:56:55.701Z
+-->
+
+<h1>Reiniciar NSU</h1>
+<p>Em alguns casos, o SyncBot pode não retornar todas as notas disponíveis. Para forçar uma nova tentativa de busca, é possível redefinir o <strong>NSU (Número Sequencial Único)</strong>.</p>
+<h2>Procedimento</h2>
+<ol>
+  <li>Acesse <strong>Configurações do Sistema</strong></li>
+  <li>Abra a aba <strong>Scripts</strong></li>
+  <li>Execute o comando abaixo:</li>
+</ol>
+<p><code>UPDATE CONFIG SET VALOR = '0' WHERE NOME LIKE '%NSU_NFSE%'</code></p>
+<figure class="image"><img src="/imagens_sync/image_(48).png"></figure>
+<h2>Resultado esperado</h2>
+<p>O SyncBot reiniciará o controle do NSU e realizará uma nova busca das notas disponíveis no próximo ciclo de processamento.</p>
+<h2>Atenção</h2>
+<p>Execute este procedimento apenas quando necessário, pois ele reinicia o histórico de controle de buscas.</p>
+<p>&nbsp;</p>
