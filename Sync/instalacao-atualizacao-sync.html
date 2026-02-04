@@ -2,7 +2,7 @@
 title: Instalação e atualização do Sync
 description: 
 published: true
-date: 2026-02-04T14:37:08.335Z
+date: 2026-02-04T14:50:29.511Z
 tags: sync
 editor: ckeditor
 dateCreated: 2025-11-13T14:31:17.477Z
@@ -75,20 +75,43 @@ dateCreated: 2025-11-13T14:31:17.477Z
       <li>Cole o <strong>Identificador do computador</strong> e clique em <strong>Gerar</strong>.</li>
       <li>Preencha o campo <strong>Expiração</strong> utilizando a mesma data dos demais computadores do cliente, vista na tela anterior.</li>
       <li>Mantenha a opção <strong>Forçar expiração</strong> desmarcada.</li>
+      <li>Salve o cadastro.</li>
     </ol>
   </li>
 </ul>
-<ol>
-  <li>Clicar em <strong>Inserir</strong>, preencher os campos solicitados, colar o identificador e clicar em <strong>Gerar</strong>.</li>
-  <li>Preencher o campo <strong>Expiração </strong>utilizando a mesma data dos demais computadores do cliente</li>
-  <li>Manter a opção <strong>Forçar expiração</strong> desmarcada e salvar</li>
-  <li>Retornar ao Sync, clicar em <strong>Buscar Licença</strong> e depois em <strong>Registrar</strong></li>
-  <li>Realizar o teste de acesso utilizando o usuário ADMIN</li>
-</ol>
+<figure class="image"><img src="/imagens_sync/image_(55).png"></figure>
+<ul>
+  <li><strong>Registro da licença no Sync</strong>
+    <ol>
+      <li>Retorne ao Sync.</li>
+      <li>Clique em <strong>Buscar Licença</strong>.</li>
+      <li>Em seguida, clique em <strong>Registrar</strong>.</li>
+    </ol>
+  </li>
+</ul>
+<figure class="image"><img src="/imagens_sync/image_(56).png"></figure>
 <h2>Atualização do Sync</h2>
-<ol>
-  <li>Acessar a pasta <strong>C:\Sync</strong> na máquina do cliente.</li>
-  <li>Renomear o arquivo <strong>Sync.exe</strong> para <strong>Sync_old_[data] .exe.</strong></li>
-  <li>No seu ambiente, acessar: <strong>Nextcloud\FrontsysSistemas\Instalar\Sync</strong>, copiar o arquivo <strong>Sync.exe</strong> e colá-lo na pasta <strong>C:\Sync</strong> do cliente.</li>
-  <li>Executar <strong>AutoUpdate.exe</strong> para validar a atualização.</li>
-</ol>
+<ul>
+  <li><strong>Backup do executável atual</strong>
+    <ol>
+      <li>Acesse a pasta <strong>C:\Sync </strong>no ambiente do cliente</li>
+      <li>Renomeie o arquivo <strong>Sync.exe</strong> para: Sync_[versao]_[data].exe</li>
+    </ol>
+  </li>
+</ul>
+<figure class="image"><img src="/imagens_sync/image_(57).png"></figure>
+<ul>
+  <li><strong>Substituição do executável</strong>
+    <ol>
+      <li>No seu ambiente, acesse: <strong>F:\Todos\Instalar\Sync</strong></li>
+      <li>Copie o arquivo <strong>Sync.exe</strong> atualizado.</li>
+      <li>Cole o arquivo na pasta <strong>C:\Sync</strong> da máquina do cliente.</li>
+    </ol>
+  </li>
+  <li><strong>Validação da atualização</strong>
+    <ol>
+      <li>Execute o <strong>AutoUpdate.exe</strong>.</li>
+      <li>Confirme se o Sync abre normalmente e se a versão foi atualizada.</li>
+    </ol>
+  </li>
+</ul>
