@@ -2,7 +2,7 @@
 title: Fórmulas de Tributos
 description: 
 published: true
-date: 2026-02-04T12:05:52.952Z
+date: 2026-02-04T16:45:28.216Z
 tags: sync
 editor: ckeditor
 dateCreated: 2026-02-03T13:46:16.673Z
@@ -53,11 +53,23 @@ dateCreated: 2026-02-03T13:46:16.673Z
 <p><code>ISNULL((ISNULL(NOTA.TOTAL_RETENCAO_CP,0)/NULLIF(NOTA.TOTAL_SERVICOS,0)*100),0)</code></p>
 <h3>ISS Retido</h3>
 <p><code>ISNULL(ITEM.ISSQN_BASE_CALC,0)</code></p>
-<p><code>CASE</code><br><code>WHEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0) &gt; 0</code><br><code>THEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0)</code><br><code>ELSE 0</code><br><code>END</code></p>
-<p><code>CASE</code><br><code>WHEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0) &gt; 0</code><br><code>THEN ISNULL(ITEM.ISSQN_ALIQUOTA,0)</code><br><code>ELSE 0</code><br><code>END</code></p>
+<pre><code class="language-plaintext">CASE
+WHEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0) &gt; 0
+THEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0)
+ELSE 0
+END</code></pre>
+<pre><code class="language-plaintext">CASE
+WHEN ISNULL(ITEM.ISSQN_VALOR_RETIDO,0) &gt; 0
+THEN ISNULL(ITEM.ISSQN_ALIQUOTA,0)
+ELSE 0
+END</code></pre>
 <h3>PIS, COFINS e CSLL Retidos</h3>
 <p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
-<p><code>CASE</code><br><code>WHEN NOTA.TOTAL_PIS &gt; 0 AND NOTA.TOTAL_COFINS &gt; 0 AND NOTA.TOTAL_RETENCAO_CSLL &gt; 0</code><br><code>THEN ISNULL((NOTA.TOTAL_PIS + NOTA.TOTAL_COFINS + NOTA.TOTAL_RETENCAO_CSLL),0)</code><br><code>ELSE 0</code><br><code>END</code></p>
+<pre><code class="language-plaintext">CASE
+WHEN NOTA.TOTAL_PIS &gt; 0 AND NOTA.TOTAL_COFINS &gt; 0 AND NOTA.TOTAL_RETENCAO_CSLL &gt; 0
+THEN ISNULL((NOTA.TOTAL_PIS + NOTA.TOTAL_COFINS + NOTA.TOTAL_RETENCAO_CSLL),0)
+ELSE 0
+END</code></pre>
 <p><code>ISNULL('4,65',0)</code></p>
 <h3>IRRF</h3>
 <p><code>ISNULL(NOTA.TOTAL_SERVICOS,0)</code></p>
