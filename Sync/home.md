@@ -2,13 +2,16 @@
 title: Home
 description: 
 published: true
-date: 2026-02-04T13:57:20.972Z
+date: 2026-02-04T14:54:07.304Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
 ---
 
 # Home
+## Instalações
+- Instalação e atualização do Sync: [instalacao-atualizacao-sync](/Sync/instalacao-atualizacao-sync)
+
 ## Configurações
 - Cadastros de movimentos: [cadastros-de-movimentos](/Sync/cadastros-de-movimentos)
 - Configuração de certificado digital: [configuracao-certificado-digital](/Sync/configuracao-certificado-digital)
@@ -16,7 +19,6 @@ dateCreated: 2026-01-26T17:53:12.125Z
 - Criação de usuários: [criacao-usuarios](/Sync/criacao-usuarios)
 - Fórmulas de Tributos: [formulas-de-tributos](/Sync/formulas-de-tributos)
 - Habilitar NFS-e para empresas: [habilitar-nfse](/Sync/habilitar-nfse)
-- Instalação e atualização do Sync: [instalacao-atualizacao-sync](/Sync/instalacao-atualizacao-sync)
 - Parametrização de tributos: [parametrizacao-tributos](/Sync/parametrizacao-tributos)
 - Reiniciar NSU: [reiniciar-nsu](/Sync/reiniciar-nsu)
 - Scripts de Atualização Sync: [scripts-atualização-sync](/Sync/scripts-atualização-sync)
