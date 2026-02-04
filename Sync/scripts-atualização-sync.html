@@ -1,0 +1,1173 @@
+<!--
+title: Scripts de Atualização Sync
+description: 
+published: true
+date: 2026-02-04T16:41:19.191Z
+tags: sync
+editor: ckeditor
+dateCreated: 2025-10-22T16:40:20.532Z
+-->
+
+<p>Atenção:</p>
+<p>Em caso do cliente utilizar o SyncBot, é recomendado atualizar o mesmo sempre que uma atualização do Sync for realizada.</p>
+<p>A partir da versão 1.8.0.40, os scripts de atualização são executados pelo próprio executável do Sync.</p>
+<hr>
+<p>---------------------- 1.8.0.37 ----------------------</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD CODTB1FAT varchar(10) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.8.0.33 ----------------------</p>
+<p>ALTER TABLE NOTA_FISCAL ADD STATUS_ITEM_REF_CTE_TOTVS char(1) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.8.0.29 ----------------------</p>
+<p>ALTER TABLE NOTA_FISCAL_DESTINADA ALTER COLUMN CHAVE_ACESSO varchar(60) NOT NULL;</p>
+<p>ALTER TABLE NOTA_FISCAL ALTER COLUMN CHAVE_ACESSO varchar(60) NULL;</p>
+<p>ALTER TABLE NOTA_FISCAL_DESTINADA ALTER COLUMN NUMERO varchar(35) NOT NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.8.0.21 ----------------------</p>
+<p>ALTER TABLE NOTA_FISCAL ALTER COLUMN NUMERO varchar(35) NOT NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.8.0.13 ----------------------</p>
+<p>ALTER TABLE NOTA_FISCAL ADD COMPRA_EMERGENCIAL char(1) NULL;</p>
+<p>ALTER TABLE MOVIMENTO ADD EXPORTAR_TAG_MOVFISCAL char(1) DEFAULT 'N' NULL;</p>
+<p>ALTER TABLE DUPLICATA_NOTA_FISCAL ADD CODIGOBARRA varchar(45) NULL;</p>
+<p>ALTER TABLE DUPLICATA_NOTA_FISCAL ADD QRCODEPIX varchar(500) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.8.0.00 ----------------------</p>
+<p>ALTER TABLE EMPRESA ADD ACESSO_SYNCSERVICE VARCHAR (1) DEFAULT ('N') NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.86 ----------------------</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_NOME varchar(60);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_CNPJ_CPF varchar(20);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_INSCR_EST varchar(20);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_ENDERECO varchar(60);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_NUMERO varchar(20);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_COMPLEMENTO varchar(60);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_BAIRRO varchar(60);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_CEP varchar(10);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_COD_MUNICIPIO int ;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_MUNICIPIO varchar(60);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD RECEBEDOR_ESTADO varchar(2);</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.85 ----------------------</p>
+<p>ALTER TABLE NOTA_FISCAL ADD NUMERO_DI VARCHAR(35) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.79 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD IDMOV_SOLICITACAO_COMPRA int NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.78 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD TOTAL_ICMS_DESONERADO numeric(15,4) DEFAULT 0 NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD ICMS_DESONERADO numeric(15,4) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.77 ----------------------</p>
+<p>&nbsp;</p>
+<p>UPDATE NOTA_FISCAL</p>
+<p>SET &nbsp;</p>
+<p>STATUS_INTEGRACAO = 'N',</p>
+<p>STATUS_INTEGRACAO_FLUIG = 'N',</p>
+<p>STATUS_BAIXA_OC = 'N',</p>
+<p>STATUS_BAIXA_PREV_FINANCEIRA = 'N'</p>
+<p>WHERE &nbsp;</p>
+<p>(DATEPART(year, CONVERT(DATE, DATA_EMISSAO)) &gt;= 2023) AND</p>
+<p>(STATUS_INTEGRACAO = 'E')</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.69 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CODPRJ varchar(24) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CODTRF varchar(60) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.64 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD STATUS_BAIXA_OC char(1) DEFAULT 'N' NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD STATUS_BAIXA_PREV_FINANCEIRA char(1) DEFAULT 'N' NULL;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>UPDATE NOTA_FISCAL</p>
+<p>SET &nbsp;</p>
+<p>STATUS_INTEGRACAO = 'N',</p>
+<p>STATUS_INTEGRACAO_FLUIG = 'N',</p>
+<p>STATUS_BAIXA_OC = 'N',</p>
+<p>STATUS_BAIXA_PREV_FINANCEIRA = 'N'</p>
+<p>WHERE &nbsp;</p>
+<p>(DATEPART(year, CONVERT(DATE, DATA_EMISSAO)) &gt;= 2023) AND</p>
+<p>(STATUS_INTEGRACAO = 'E') OR</p>
+<p>(STATUS_INTEGRACAO_FLUIG = 'E') OR</p>
+<p>(STATUS_BAIXA_OC = 'E') OR</p>
+<p>(STATUS_BAIXA_PREV_FINANCEIRA = 'E')</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.58 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD CODVEN2 varchar(16) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE MOVIMENTO ADD EXPORTAR_TAG_MOVHISTORICO char(1) DEFAULT 'N' NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.52 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD VALOR_BRUTO_RM numeric(15,4) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD VALOR_LIQUIDO_RM numeric(15,4) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.36 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE MOVIMENTO ADD TRATAR_COMO_PRE_NOTA char(1) DEFAULT 'N' NOT NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE EMPRESA ADD RM_CODCOLIGADA int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE EMPRESA ADD RM_CODFILIAL int NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.28 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD NATREC varchar(5) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.18 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD ICMS_ST_ATIVAR char(1)</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL DROP COLUMN AFETA_ESTOQUE;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.17 ----------------------</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD CODTB3FAT varchar(10) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CODTB3FAT varchar(10) NULL;</p>
+<p>&nbsp;</p>
+<p>IF (NOT EXISTS(SELECT 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FROM CONFIG</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (NOME = 'METODO_EXP_CAMPOS_COMPL'))) &nbsp;</p>
+<p>INSERT INTO CONFIG (NOME, VALOR)</p>
+<p>&nbsp;VALUES ('METODO_EXP_CAMPOS_COMPL', 'ITEM');</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.10 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD INFORMACAO_ADICIONAL varchar(500) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.5 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ALTER COLUMN VALOR_UNITARIO numeric(15,6) NOT NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ALTER COLUMN TOTAL_PRODUTOS numeric(15,6) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.2 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CEST varchar(7) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.7.0.0 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD CODTDO varchar(10) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD COMPOE_TOTAL_NF CHAR(1) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.92 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE PASTA_SPTRANS (</p>
+<p>ID_PASTA_SPTRANS int IDENTITY(0,1) NOT NULL,</p>
+<p>NOME varchar(60) COLLATE Latin1_General_CI_AS NULL</p>
+<p>);</p>
+<p>ALTER TABLE PASTA_SPTRANS ADD CONSTRAINT PASTA_SPTRANS_PK PRIMARY KEY (ID_PASTA_SPTRANS);</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE ITEM_PASTA_SPTRANS (</p>
+<p>ID_ITEM_PASTA_SPTRANS int IDENTITY(0,1) NOT NULL,</p>
+<p>ID_PASTA_SPTRANS int NOT NULL,</p>
+<p>CODTBORCAMENTO varchar(40) NOT NULL,</p>
+<p>NOME_PASTA varchar(100) NOT NULL, &nbsp;</p>
+<p>);</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_PASTA_SPTRANS ADD CONSTRAINT ITEM_PASTA_SPTRANS_PK PRIMARY KEY (ID_ITEM_PASTA_SPTRANS);</p>
+<p>ALTER TABLE ITEM_PASTA_SPTRANS ADD CONSTRAINT ITEM_PASTA_SPTRANS_FK FOREIGN KEY (ID_PASTA_SPTRANS) REFERENCES PASTA_SPTRANS(ID_PASTA_SPTRANS) ON DELETE CASCADE ON UPDATE CASCADE;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.89 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE EMPRESA ADD ACESSO_SYNCBOT varchar(1) DEFAULT 'N' NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.88 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL_DESTINADA ADD DATA_HORA_AUTORIZACAO datetime NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.68 ---------------------- &nbsp;</p>
+<p>OBS: (AO ATUALIZAR PARA ESTA VERSÃO COM OS NOVOS CAMPOS COMPLEMENTARES DOS ITENS,</p>
+<p>VERIFICAR SE O CLIENTE JÁ POSSUI CAMPOS COMPLEMENTARES DE ITEM CADASTRADOS NAS CONFIGURAÇÕES</p>
+<p>DOS MOVIMENTOS, CASO HAJA, HABILITAR PARÂMETRO "Modo de Exportação Campos Compl do Item: ITEM"</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_3 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_4 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_5 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_6 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_7 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_8 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_9 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_10 varchar(100) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.64 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD LOCAL_ESTOQUE_DESTINO varchar(15) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.58 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD ID_USUARIO_INTEGRACAO_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.57 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CODTB3FLX varchar(25) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.55 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE CAMPO_COMPLEMENTAR_ITEM ADD SENTENCA_SQL VARCHAR(2000) NULL</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.53 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE CLASSIFICACAO (</p>
+<p>ID_CLASSIFICACAO int IDENTITY(1,1) NOT NULL,</p>
+<p>DESCRICAO varchar(100) COLLATE Latin1_General_CI_AS NULL,</p>
+<p>CONSTRAINT CLASSIFICACAO_PK PRIMARY KEY (ID_CLASSIFICACAO)</p>
+<p>);</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD ID_CLASSIFICACAO int NULL</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.52 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE CAMPO_COMPLEMENTAR_ITEM (</p>
+<p>ID_CAMPO_COMPLEMENTAR_ITEM int IDENTITY(1,1) NOT NULL,</p>
+<p>CODCOLIGADA smallint NOT NULL,</p>
+<p>CODFILIAL smallint NOT NULL,</p>
+<p>TABELA varchar(50) COLLATE Latin1_General_CI_AS NOT NULL,</p>
+<p>CAMPO varchar(50) COLLATE Latin1_General_CI_AS NOT NULL,</p>
+<p>SENTENCA_SQL_LISTA varchar(2000) COLLATE Latin1_General_CI_AS NULL,</p>
+<p>DESCRICAO_LABEL varchar(50) COLLATE Latin1_General_CI_AS NULL,</p>
+<p>PREENCHER_AO_INTEGRAR char(1) COLLATE Latin1_General_CI_AS DEFAULT 'N' NULL,</p>
+<p>OBRIGATORIO char(1) COLLATE Latin1_General_CI_AS NULL,</p>
+<p>CONSTRAINT CAMPO_COMPLEMENTAR_ITEM_PK PRIMARY KEY (ID_CAMPO_COMPLEMENTAR_ITEM)</p>
+<p>);</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_1 varchar(100) NULL;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CAMPO_COMPLEMENTAR_2 varchar(100) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.51 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD CODVEN1 varchar(16) NULL;​</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.50 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE CONFIG_FLUIG (</p>
+<p>NOME varchar(50) COLLATE Latin1_General_CI_AS NOT NULL,</p>
+<p>VALOR varchar(150) COLLATE Latin1_General_CI_AS NULL</p>
+<p>);</p>
+<p>ALTER TABLE NOTA_FISCAL ADD NUM_DOC_FLUIG int NULL;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD STATUS_INTEGRACAO_FLUIG char(1) DEFAULT 'P' NULL;</p>
+<p>EXEC sp_addextendedproperty 'MS_Description', N'P=PENDENTE, I=INTEGRADO', 'schema', N'dbo', 'table', N'NOTA_FISCAL', 'column', N'STATUS_INTEGRACAO_FLUIG';</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.46 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE CONFIG_BOT (</p>
+<p>NOME varchar(50) NOT NULL,</p>
+<p>VALOR varchar(150) NULL</p>
+<p>);</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.44 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE USUARIO ADD ACESSO_SYNCBOT char(1) DEFAULT 'N' NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.42 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_PERFIL ALTER COLUMN DESCRICAO varchar(100) COLLATE Latin1_General_CI_AS NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.40 ----------------------</p>
+<p>&nbsp;</p>
+<p>UPDATE PEDIDO_NOTA_FISCAL SET PRE_NOTA = 'N';</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE PEDIDO_NOTA_FISCAL ADD PRE_NOTA char(1) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.24 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD AFETA_ESTOQUE char(1) NULL;</p>
+<p>&nbsp;</p>
+<p>UPDATE PADRAO_MOVIMENTO SET PRE_NOTA = 'N';</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE PADRAO_MOVIMENTO ADD PRE_NOTA char(1) DEFAULT 'N' NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD IDMOV_PRE_NOTA int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD NUMERO_PRE_NOTA int NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.8 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE LOTE_RATEIO_CENTRO_CUSTO ADD IDPRJ_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE LOTE_RATEIO_CENTRO_CUSTO ADD IDTRF_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE RATEIO_CENTRO_CUSTO_NOTA ADD IDPRJ_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE RATEIO_CENTRO_CUSTO_NOTA ADD IDTRF_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE RATEIO_CENTRO_CUSTO ADD IDPRJ_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE RATEIO_CENTRO_CUSTO ADD IDTRF_RM int NULL;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.4 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ASSOCIACAO_TRIBUTO ADD TRIBUTO_ITEM_EXPORTACAO char(1) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.3 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ASSOCIACAO_TRIBUTO ADD FORMULA_BASE_CALCULO_AGRUPADO varchar(2000) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ASSOCIACAO_TRIBUTO ADD FORMULA_ALIQUOTA_AGRUPADO varchar(2000) NULL;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ASSOCIACAO_TRIBUTO ADD FORMULA_TRIBUTO_BASE_AGRUPADO varchar(2000) NULL;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.6.0.2 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE MOVIMENTO ADD NAO_AFETAR_SALDO_PEDIDO_FORNECEDOR char(1) DEFAULT 'N' NULL</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.81.21 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ASSOCIACAO_PRODUTO ADD NCM_PRODUTO_NFE varchar(8)</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.78 ------------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD ENTREGA_INSCR_EST varchar(20) NULL;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD TRANSPORTADOR_NUMERO varchar(20) NULL;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD TRANSPORTADOR_COMPLEMENTO varchar(60) NULL; &nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL ADD TRANSPORTADOR_BAIRRO varchar(60) NULL;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>IF (NOT EXISTS(SELECT 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;FROM PERFIL</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WHERE (NOME = 'ADMINISTRADOR'))) &nbsp;</p>
+<p>&nbsp;INSERT INTO PERFIL (NOME)</p>
+<p>&nbsp;VALUES ('ADMINISTRADOR');</p>
+<p>&nbsp; &nbsp;</p>
+<p>IF (NOT EXISTS(SELECT 1</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FROM USUARIO</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (NOME = 'ADMIN')))</p>
+<p>&nbsp;INSERT INTO USUARIO(ID_PERFIL, NOME, SENHA, INATIVO)</p>
+<p>&nbsp;VALUES ((SELECT ID_PERFIL FROM PERFIL WHERE NOME = 'ADMINISTRADOR'), 'ADMIN', '328DABCF2F22ADAC084E33CCD702FB4C', 'N')</p>
+<p>ELSE &nbsp;</p>
+<p>&nbsp;UPDATE USUARIO SET ID_PERFIL = (SELECT ID_PERFIL FROM PERFIL WHERE NOME = 'ADMINISTRADOR') WHERE NOME = 'ADMIN' AND ID_PERFIL IS NULL; &nbsp;​</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.77 ----------------------</p>
+<p>&nbsp;</p>
+<p>DECLARE @IDPERFIL as int</p>
+<p>&nbsp;</p>
+<p>DECLARE Perfil_Cursor CURSOR FOR &nbsp;</p>
+<p>SELECT ID_PERFIL</p>
+<p>&nbsp;FROM PERFIL Perfil_Cursor; &nbsp;</p>
+<p>OPEN Perfil_Cursor; &nbsp;</p>
+<p>FETCH NEXT FROM Perfil_Cursor INTO @IDPERFIL; &nbsp;</p>
+<p>WHILE @@FETCH_STATUS = 0 &nbsp;</p>
+<p>&nbsp; BEGIN &nbsp;</p>
+<p>&nbsp; &nbsp;IF (NOT EXISTS(SELECT 1 FROM ITEM_PERFIL</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (ID_PERFIL = @IDPERFIL) AND</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (NOME = 'prmConfirmacaoOperacao'))) &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;INSERT INTO ITEM_PERFIL(ID_PERFIL, NOME, DESCRICAO, PERMISSAO)</p>
+<p>&nbsp; &nbsp;VALUES(@IDPERFIL, 'prmConfirmacaoOperacao', 'Controle - Registrar Manifestação - Confirmação da Operação.', 'S');</p>
+<p>&nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IF (NOT EXISTS(SELECT 1 FROM ITEM_PERFIL</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (ID_PERFIL = @IDPERFIL) AND</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (NOME = 'prmDesconhecimentoOperacao'))) &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;INSERT INTO ITEM_PERFIL(ID_PERFIL, NOME, DESCRICAO, PERMISSAO)</p>
+<p>&nbsp; &nbsp;VALUES(@IDPERFIL, 'prmDesconhecimentoOperacao', 'Controle - Registrar Manifestação - Desc. da Operação.', 'S'); &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; IF (NOT EXISTS(SELECT 1 FROM ITEM_PERFIL</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (ID_PERFIL = @IDPERFIL) AND</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (NOME = 'prmConfirmacaoOperacao'))) &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;INSERT INTO ITEM_PERFIL(ID_PERFIL, NOME, DESCRICAO, PERMISSAO)</p>
+<p>&nbsp; &nbsp;VALUES(@IDPERFIL, 'prmOperacaoNaoRealizada', 'Controle - Registrar Manifestação - Operação não realizada.', 'S'); &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; IF (NOT EXISTS(SELECT 1 FROM ITEM_PERFIL</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (ID_PERFIL = @IDPERFIL) AND</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (NOME = 'prmConfirmacaoOperacao'))) &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;INSERT INTO ITEM_PERFIL(ID_PERFIL, NOME, DESCRICAO, PERMISSAO)</p>
+<p>&nbsp; &nbsp;VALUES(@IDPERFIL, 'prmCienciaOperacao', 'Controle - Registrar Manifestação - Ciência da Operação.', 'S'); &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;FETCH NEXT FROM Perfil_Cursor INTO @IDPERFIL; &nbsp;</p>
+<p>&nbsp; END; &nbsp;</p>
+<p>CLOSE Perfil_Cursor; &nbsp;</p>
+<p>DEALLOCATE Perfil_Cursor; &nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.76 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD DATA_ENTREGA_ITEM datetime NULL</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE FUNCIONARIO (</p>
+<p>ID_FUNCIONARIO int IDENTITY(1,1) NOT NULL,</p>
+<p>CODIGO varchar(16) NOT NULL,</p>
+<p>NOME varchar(80) NOT NULL,</p>
+<p>SENHA varchar(40) NOT NULL,</p>
+<p>CONSTRAINT PK_FUNCIONARIO PRIMARY KEY (ID_FUNCIONARIO)</p>
+<p>)</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD ID_FUNCIONARIO int NULL</p>
+<p>ALTER TABLE FUNCIONARIO ADD CONSTRAINT UNIQUE_FUNCIONARIO UNIQUE (CODIGO)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CODCCUSTO varchar(25) NULL</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD IDOBJOF varchar(20) NULL &nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.73 ----------------------</p>
+<p>&nbsp;</p>
+<p>IF (NOT EXISTS(SELECT 1 &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FROM CONFIG &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; WHERE (NOME = 'BUSCAR_UN_ASSOC_PRD_OC'))) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;INSERT INTO CONFIG(NOME, VALOR)</p>
+<p>&nbsp; &nbsp;VALUES('BUSCAR_UN_ASSOC_PRD_OC', 'N');</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.72 ----------------------</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE LOTE_RATEIO_CENTRO_CUSTO ADD CONSTRAINT PK_LOTE_RATEIO_CENTRO_CUSTO PRIMARY KEY (ID_LOTE_RATEIO_CENTRO_CUSTO)</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE LOTE_RATEIO_CENTRO_CUSTO ADD CONSTRAINT LOTE_RATEIO_CENTRO_CUSTO_FK FOREIGN KEY (ID_NOTA_FISCAL) REFERENCES NOTA_FISCAL(ID_NOTA_FISCAL) ON DELETE CASCADE ON UPDATE CASCADE</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE LOTE_RATEIO_CENTRO_CUSTO (</p>
+<p>ID_LOTE_RATEIO_CENTRO_CUSTO int IDENTITY(1,1) NOT NULL,</p>
+<p>ID_NOTA_FISCAL int NULL,</p>
+<p>CODCCUSTO_RM varchar(25) NULL,</p>
+<p>PERCENTUAL numeric(15,4) NULL</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.71 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD CODTB4FAT varchar(10) NULL &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.67 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL ADD PEDIDO_COMPRA varchar(15) NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE EMPRESA ADD TIPO_DOCUMENTO_CTE_67 varchar(10) NULL &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.64 ----------------------</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD CODTB4FLX varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.63 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE MOVIMENTO ADD CONSIDERAR_ORDEM_COMPRA_APROVADA char(1) DEFAULT 'N' NULL</p>
+<p>&nbsp;</p>
+<p>G0</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_PERFIL</p>
+<p>&nbsp;ADD CONSTRAINT FK_ITEM_PERFIL</p>
+<p>&nbsp;FOREIGN KEY (ID_PERFIL)</p>
+<p>&nbsp; &nbsp;REFERENCES dbo.PERFIL(ID_PERFIL)</p>
+<p>&nbsp; &nbsp;ON DELETE CASCADE</p>
+<p>&nbsp; &nbsp;ON UPDATE CASCADE</p>
+<p>GO​</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PERFIL</p>
+<p>&nbsp;ADD CONSTRAINT UNIQUE_PERFIL</p>
+<p>&nbsp;UNIQUE (NOME)</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.60 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL_DESTINADA &nbsp;</p>
+<p>ADD CONSTRAINT FK_NOTA_FISCAL_DESTINADA_USUARIO FOREIGN KEY (ID_USUARIO) REFERENCES USUARIO(ID_USUARIO) ON UPDATE CASCADE</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL_DESTINADA ADD ID_USUARIO int NULL &nbsp;</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.59 ----------------------</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL &nbsp;</p>
+<p>ADD CAMPO_COMPLEMENTAR_01 VARCHAR(100)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.57 ----------------------</p>
+<p>ALTER TABLE CAMPO_COMPLEMENTAR_MOVIMENTO ADD</p>
+<p>&nbsp;OBRIGATORIO CHAR(1)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD NATUREZA_OPERACAO_2 varchar(20)​ &nbsp; &nbsp;.....</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>---------------------- 1.5.54 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.CAMPO_COMPLEMENTAR_NOTA_FISCAL (</p>
+<p>ID_CAMPO_COMPLEMENTAR_NOTA_FISCAL int IDENTITY(1, 1),</p>
+<p>ID_NOTA_FISCAL int NOT NULL,CAMPO varchar(50) NOT NULL,</p>
+<p>VALOR varchar(50),/* Keys */PRIMARY KEY (ID_CAMPO_COMPLEMENTAR_NOTA_FISCAL),</p>
+<p>/* Foreign keys */CONSTRAINT FK_CAMPO_COMPLEMENTAR_NOTA_FISCAL FOREIGN KEY (ID_NOTA_FISCAL)REFERENCES &nbsp;</p>
+<p>dbo.NOTA_FISCAL(ID_NOTA_FISCAL)ON DELETE CASCADE ON UPDATE CASCADE)</p>
+<p>&nbsp;</p>
+<p>&nbsp;GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.CAMPO_COMPLEMENTAR_MOVIMENTO</p>
+<p>&nbsp;ADD SENTENCA_SQL_LISTA varchar(2000)</p>
+<p>&nbsp;</p>
+<p>&nbsp;GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.CAMPO_COMPLEMENTAR_MOVIMENTO</p>
+<p>&nbsp;ADD DESCRICAO_LABEL varchar(50)</p>
+<p>&nbsp;</p>
+<p>&nbsp;GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.CAMPO_COMPLEMENTAR_MOVIMENTO</p>
+<p>&nbsp;ADD PREENCHER_AO_INTEGRAR char​</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE "dbo"."EMPRESA"</p>
+<p>ADD "INATIVO" VARCHAR(1) NULL DEFAULT 'N'</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE EMPRESA SET INATIVO = 'N' WHERE INATIVO IS NULL</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.53 ----------------------</p>
+<p>&nbsp;</p>
+<p>-- EXECUTAR RESULTADO DA QUERY ABAIXO --</p>
+<p>&nbsp;</p>
+<p>SELECT</p>
+<p>&nbsp;'INSERT INTO EMPRESA_USUARIO(ID_EMPRESA, ID_USUARIO) &nbsp;SELECT ' &nbsp;</p>
+<p>+ CAST(ID_EMPRESA AS VARCHAR(10)) + ', ID_USUARIO FROM USUARIO;'</p>
+<p>FROM EMPRESA</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE EMPRESA_USUARIO(</p>
+<p>&nbsp;ID_EMPRESA_USUARIO INTEGER IDENTITY(1,1) NOT NULL,</p>
+<p>&nbsp;ID_EMPRESA INTEGER NOT NULL,</p>
+<p>&nbsp;ID_USUARIO INTEGER NOT NULL,</p>
+<p>&nbsp;CONSTRAINT FK_EMPRESA_USUARIO_EMPRESA &nbsp;</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_EMPRESA)</p>
+<p>REFERENCES EMPRESA (ID_EMPRESA)</p>
+<p>ON DELETE CASCADE,</p>
+<p>&nbsp;CONSTRAINT FK_EMPRESA_USUARIO_USUARIO</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_USUARIO)</p>
+<p>REFERENCES USUARIO(ID_USUARIO)</p>
+<p>ON DELETE CASCADE);</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE LOG_USUARIO(</p>
+<p>&nbsp;ID_LOG_USUARIO INTEGER IDENTITY(1,1) NOT NULL,</p>
+<p>&nbsp;ID_EMPRESA INTEGER NOT NULL,</p>
+<p>&nbsp;ID_USUARIO INTEGER NOT NULL,</p>
+<p>&nbsp;IDENTIFICADOR INTEGER NOT NULL,</p>
+<p>&nbsp;TABELA VARCHAR(60) NOT NULL,</p>
+<p>&nbsp;HISTORICO VARCHAR(300) NOT NULL,</p>
+<p>&nbsp;DATA_HORA DATETIME DEFAULT CURRENT_TIMESTAMP,</p>
+<p>&nbsp;ACAO CHAR(1),</p>
+<p>&nbsp;PRIMARY KEY (ID_LOG_USUARIO))</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.52 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD NORDEM_RM varchar(20)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.50 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.EMPRESA</p>
+<p>&nbsp;ADD ARQUIVO_CERTIFICADO varbinary(max)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.DUPLICATA_NOTA_FISCAL</p>
+<p>&nbsp;ADD IDFORMAPAGTO_RM int</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.DUPLICATA_NOTA_FISCAL</p>
+<p>&nbsp;ADD CODCXA_RM varchar(10)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD DANFE_BASE64 varchar(max)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD DANFE varbinary(max)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>-- COPIAR DLL MAIS NOVAS --</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.47 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE USUARIO</p>
+<p>ADD INATIVO VARCHAR(1) DEFAULT 'N'</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD INTEGRAR_CHAVE_ACESSO char</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;EXIGIR_ORDEM_COMPRA = 'N'</p>
+<p>WHERE EXIGIR_ORDEM_COMPRA IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;TRATAR_COMO_ORDEM_COMPRA = 'N'</p>
+<p>WHERE TRATAR_COMO_ORDEM_COMPRA IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;EXIGIR_CONFERENCIA = 'N'</p>
+<p>WHERE EXIGIR_CONFERENCIA IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;EXIGIR_COPIA_REFERENCIA = 'N'</p>
+<p>WHERE EXIGIR_COPIA_REFERENCIA IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;TRATAR_COMO_ORIGEM_COPIA_REFERENCIA = 'N'</p>
+<p>WHERE TRATAR_COMO_ORIGEM_COPIA_REFERENCIA IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;EXCLUIR_LANC_FINANCEIRO_INTEGRAR = 'N'</p>
+<p>WHERE EXCLUIR_LANC_FINANCEIRO_INTEGRAR IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;INTEGRAR_VALOR_TOTAL_ITEM = 'N'</p>
+<p>WHERE INTEGRAR_VALOR_TOTAL_ITEM IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;INTEGRAR_DESCONTO = 'A'</p>
+<p>WHERE INTEGRAR_DESCONTO IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;INTEGRAR_OUTRAS_DESPESAS = 'A'</p>
+<p>WHERE INTEGRAR_OUTRAS_DESPESAS IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;UTILIZAR_CODCFO_PADRAO = 'N'</p>
+<p>WHERE UTILIZAR_CODCFO_PADRAO IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>UPDATE MOVIMENTO SET</p>
+<p>&nbsp;INTEGRAR_CHAVE_ACESSO = 'S'</p>
+<p>WHERE INTEGRAR_CHAVE_ACESSO IS NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.46 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD CODCFO_PADRAO varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD UTILIZAR_CODCFO_PADRAO char(1)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD VIA_TRANSPORTE varchar(2)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.RATEIO_DEPARTAMENTO_NOTA</p>
+<p>&nbsp;ADD PERCENTUAL numeric(15,4) NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.RATEIO_CENTRO_CUSTO_NOTA</p>
+<p>&nbsp;ADD PERCENTUAL numeric(15,4) NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.RATEIO_CENTRO_CUSTO</p>
+<p>&nbsp;ADD PERCENTUAL numeric(15,4) NULL</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.44 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.PASTA_RELATORIO (</p>
+<p>&nbsp;ID_PASTA_RELATORIO &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int PRIMARY KEY IDENTITY(1, 1),</p>
+<p>&nbsp;ID_PASTA_RELATORIO_SUPERIOR &nbsp;int,</p>
+<p>&nbsp;NOME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; varchar(60) NOT NULL</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.RELATORIO (</p>
+<p>&nbsp;ID_RELATORIO &nbsp; &nbsp; &nbsp; &nbsp;int PRIMARY KEY IDENTITY(1, 1),</p>
+<p>&nbsp;ID_PASTA_RELATORIO &nbsp;int,</p>
+<p>&nbsp;NOME &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;varchar(60) NOT NULL,</p>
+<p>&nbsp;TIPO &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int,</p>
+<p>&nbsp;TAMANHO &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int DEFAULT 0,</p>
+<p>&nbsp;TEMPLATE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;varbinary(max) NOT NULL,</p>
+<p>&nbsp;DATA_ALTERACAO &nbsp; &nbsp; &nbsp;datetime NOT NULL DEFAULT getdate(),</p>
+<p>&nbsp;DATA_EXCLUSAO &nbsp; &nbsp; &nbsp; datetime,</p>
+<p>&nbsp;CONSTRAINT UNIQUE_NOME_RELATORIO UNIQUE (ID_PASTA_RELATORIO, TIPO, NOME))</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD TIPOCREDITO varchar(5)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD CODTB1FAT varchar(10)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD CODTB1FLX varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD HISTORICOCURTO varchar(255)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD HISTORICOLONGO text</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.43 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.LOTE_ITEM_NOTA_FISCAL (</p>
+<p>&nbsp;ID_LOTE_ITEM_NOTA_FISCAL &nbsp;int IDENTITY(1, 1),</p>
+<p>&nbsp;ID_ITEM_NOTA_FISCAL &nbsp; &nbsp; &nbsp; &nbsp;int NOT NULL,</p>
+<p>&nbsp;IDLOTE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int NOT NULL,</p>
+<p>&nbsp;QUANTIDADE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; numeric(15,4) NOT NULL,</p>
+<p>&nbsp;PRIMARY KEY (ID_LOTE_ITEM_NOTA_FISCAL),</p>
+<p>&nbsp;CONSTRAINT FK_LOTE_ITEM_NOTA_FISCAL</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_ITEM_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;REFERENCES dbo.ITEM_NOTA_FISCAL(ID_ITEM_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;ON DELETE CASCADE</p>
+<p>&nbsp; &nbsp;ON UPDATE CASCADE</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD CODLOC varchar(15)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD INTEGRAR_VALOR_TOTAL_ITEM char(1)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.RATEIO_DEPARTAMENTO_NOTA (</p>
+<p>&nbsp;ID_RATEIO_DEPARTAMENTO_NOTA &nbsp;int IDENTITY(1, 1),</p>
+<p>&nbsp;ID_NOTA_FISCAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int NOT NULL,</p>
+<p>&nbsp;CODDEPARTAMENTO_RM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; varchar(25) NOT NULL,</p>
+<p>&nbsp;VALOR &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numeric(15,4) NOT NULL,</p>
+<p>&nbsp;PRIMARY KEY (ID_RATEIO_DEPARTAMENTO_NOTA),</p>
+<p>&nbsp;CONSTRAINT FK_RATEIO_DEPARTAMENTO_NOTA</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;REFERENCES dbo.NOTA_FISCAL(ID_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;ON DELETE CASCADE</p>
+<p>&nbsp; &nbsp;ON UPDATE CASCADE</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD INTEGRAR_DESCONTO char(1)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD INTEGRAR_OUTRAS_DESPESAS char(1)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.42 ----------------------</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.RATEIO_CENTRO_CUSTO_NOTA (</p>
+<p>&nbsp;ID_RATEIO_CENTRO_CUSTO_NOTA &nbsp;int IDENTITY(1, 1),</p>
+<p>&nbsp;ID_NOTA_FISCAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int NOT NULL,</p>
+<p>&nbsp;CODCCUSTO_RM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; varchar(25) NOT NULL,</p>
+<p>&nbsp;VALOR &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;numeric(15,4) NOT NULL,</p>
+<p>&nbsp;CONSTRAINT PK__RATEIO_C__55614932571DF1D501 PRIMARY KEY (ID_RATEIO_CENTRO_CUSTO_NOTA),</p>
+<p>&nbsp;CONSTRAINT FK_RATEIO_CENTRO_CUSTO_NOTA</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;REFERENCES dbo.NOTA_FISCAL(ID_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;ON DELETE CASCADE</p>
+<p>&nbsp; &nbsp;ON UPDATE CASCADE</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD EXCLUIR_LANC_FINANCEIRO_INTEGRAR char</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD CODTB4FLX varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.41 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>ADD TOTAL_CARGA numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD CODTB3FLX varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD CODTB4FAT varchar(10)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>ADD CODTBORCAMENTO varchar(40)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD CODPRJ varchar(24)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD CODTB5FAT varchar(10)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD INDNATFRETE varchar</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD NATBCCRED varchar(2)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.GRADE_ITEM_NOTA_FISCAL (</p>
+<p>&nbsp;ID_GRADE_ITEM_NOTA_FISCAL &nbsp;int IDENTITY(1, 1),</p>
+<p>&nbsp;ID_ITEM_NOTA_FISCAL &nbsp; &nbsp; &nbsp; &nbsp;int NOT NULL,</p>
+<p>&nbsp;CODGRD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; varchar(20) NOT NULL,</p>
+<p>&nbsp;NSEQITMGRD &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; smallint NOT NULL,</p>
+<p>&nbsp;QUANTIDADE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; numeric(15,4) NOT NULL,</p>
+<p>&nbsp;PRIMARY KEY (ID_GRADE_ITEM_NOTA_FISCAL),</p>
+<p>&nbsp;CONSTRAINT FK_GRADE_ITEM_NOTA_FISCAL</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_ITEM_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;REFERENCES dbo.ITEM_NOTA_FISCAL(ID_ITEM_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;ON DELETE CASCADE</p>
+<p>&nbsp; &nbsp;ON UPDATE CASCADE</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER AUTHORIZATION</p>
+<p>&nbsp;ON OBJECT :: dbo.GRADE_ITEM_NOTA_FISCAL</p>
+<p>&nbsp;TO rm</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.40 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.PADRAO_MOVIMENTO</p>
+<p>&nbsp;ADD CODTB5FLX varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD CODTB2FAT varchar(25)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD EXIGIR_COPIA_REFERENCIA CHAR(1)</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.MOVIMENTO</p>
+<p>&nbsp;ADD TRATAR_COMO_ORIGEM_COPIA_REFERENCIA CHAR(1)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.39 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD TOTAL_ICMS_FCP numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD TOTAL_ICMS_ST_FCP numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD ICMS_FCP_BASE_CALC numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD ICMS_FCP_ALIQUOTA numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD ICMS_FCP_VALOR numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD ICMS_ST_FCP_BASE_CALC numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD ICMS_ST_FCP_ALIQUOTA numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.ITEM_NOTA_FISCAL</p>
+<p>&nbsp;ADD ICMS_ST_FCP_VALOR numeric(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE dbo.NOTA_FISCAL_REFERENCIADA (</p>
+<p>&nbsp;ID_NOTA_FISCAL_REFERENCIADA &nbsp;int IDENTITY(1, 1),</p>
+<p>&nbsp;ID_NOTA_FISCAL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int NOT NULL,</p>
+<p>&nbsp;CHAVE_ACESSO &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; varchar(47) NOT NULL,</p>
+<p>&nbsp;PRIMARY KEY (ID_NOTA_FISCAL_REFERENCIADA),</p>
+<p>&nbsp;CONSTRAINT FK_NOTA_FISCAL_REFERENCIADA</p>
+<p>&nbsp; &nbsp;FOREIGN KEY (ID_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;REFERENCES dbo.NOTA_FISCAL(ID_NOTA_FISCAL)</p>
+<p>&nbsp; &nbsp;ON DELETE CASCADE</p>
+<p>&nbsp; &nbsp;ON UPDATE CASCADE</p>
+<p>)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE CAMPO_COMPLEMENTAR_MOVIMENTO</p>
+<p>ADD ID_MOVIMENTO INT</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.38 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE MOVIMENTO</p>
+<p>ADD EXIGIR_CONFERENCIA char NOT NULL DEFAULT 'N'</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL</p>
+<p>ADD STATUS_CONFERENCIA char DEFAULT 'P'</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD STATUS_CONFERENCIA char DEFAULT 'P',</p>
+<p>&nbsp; &nbsp;DATA_CONFERENCIA datetime DEFAULT NULL,</p>
+<p>&nbsp; &nbsp;ID_USUARIO_CONFERENCIA int,</p>
+<p>&nbsp; &nbsp;HISTORICO_CONFERENCIA varchar(100)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET ANSI_NULLS ON</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET QUOTED_IDENTIFIER ON</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET ANSI_PADDING ON</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE [dbo].[RATEIO_CENTRO_CUSTO](</p>
+<p>[ID_RATEIO_CENTRO_CUSTO] [int] IDENTITY(1,1) NOT NULL,</p>
+<p>[ID_ITEM_NOTA_FISCAL] [int] NOT NULL,</p>
+<p>[CODCCUSTO_RM] [varchar](25) NOT NULL,</p>
+<p>[VALOR] [numeric](15, 4) NOT NULL,</p>
+<p>CONSTRAINT [PK__RATEIO_C__55614932571DF1D5] PRIMARY KEY CLUSTERED &nbsp;</p>
+<p>(</p>
+<p>[ID_RATEIO_CENTRO_CUSTO] ASC</p>
+<p>)WITH (PAD_INDEX &nbsp;= OFF, STATISTICS_NORECOMPUTE &nbsp;= OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS &nbsp;= ON, ALLOW_PAGE_LOCKS &nbsp;= ON) ON [PRIMARY]</p>
+<p>) ON [PRIMARY]</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET ANSI_PADDING OFF</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE [dbo].[RATEIO_CENTRO_CUSTO] ADD &nbsp;CONSTRAINT [DF__RATEIO_CE__VALOR__59063A47] &nbsp;DEFAULT ((0)) FOR [VALOR]</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE [dbo].[RATEIO_CENTRO_CUSTO] &nbsp;WITH CHECK ADD &nbsp;CONSTRAINT [FK_RATEIO_CENTRO_CUSTO] FOREIGN KEY([ID_ITEM_NOTA_FISCAL])</p>
+<p>REFERENCES [dbo].[ITEM_NOTA_FISCAL] ([ID_ITEM_NOTA_FISCAL])</p>
+<p>ON UPDATE CASCADE</p>
+<p>ON DELETE CASCADE</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE [dbo].[RATEIO_CENTRO_CUSTO] CHECK CONSTRAINT [FK_RATEIO_CENTRO_CUSTO]</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.37 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD CODLOCALBN VARCHAR(40)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ALTER COLUMN TIPO_PAGAMENTO int NULL</p>
+<p>&nbsp; &nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE EMPRESA</p>
+<p>ADD ESTADO VARCHAR(2)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD &nbsp;CODTMV_RM &nbsp;VARCHAR(10)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE dbo.NOTA_FISCAL</p>
+<p>&nbsp;ADD &nbsp;SERIE_RM VARCHAR(8)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.36 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL</p>
+<p>ADD COLETA_COD_MUNICIPIO INT</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE NOTA_FISCAL</p>
+<p>ADD COLETA_ESTADO VARCHAR(2)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.35 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE LOG_INTEGRACAO</p>
+<p>ADD XML_TBC VARBINARY(MAX)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.32 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD DI_ADICAO_NUMERO INT</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD DI_ADICAO_SEQUENCIAL INT</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD PESO_BRUTO NUMERIC(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD PESO_LIQUIDO NUMERIC(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>IF &nbsp;EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CAMPO_COMPLEMENTAR_MOVIMENTO]') AND type in (N'U'))</p>
+<p>DROP TABLE [dbo].[CAMPO_COMPLEMENTAR_MOVIMENTO]</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET ANSI_NULLS ON</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET QUOTED_IDENTIFIER ON</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET ANSI_PADDING ON</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>CREATE TABLE [dbo].[CAMPO_COMPLEMENTAR_MOVIMENTO](</p>
+<p>[ID_CAMPO_COMPLEMENTAR_MOVIMENTO] [int] IDENTITY(1,1) NOT NULL,</p>
+<p>[CODTMV] [varchar](10) NOT NULL,</p>
+<p>[CODCOLIGADA] [smallint] NOT NULL,</p>
+<p>[CODFILIAL] [smallint] NOT NULL,</p>
+<p>[TABELA] [varchar](50) NOT NULL,</p>
+<p>[CAMPO] [varchar](50) NOT NULL,</p>
+<p>[SENTENCA_SQL] [varchar](2000) NULL,</p>
+<p>PRIMARY KEY CLUSTERED &nbsp;</p>
+<p>(</p>
+<p>[ID_CAMPO_COMPLEMENTAR_MOVIMENTO] ASC</p>
+<p>)WITH (PAD_INDEX &nbsp;= OFF, STATISTICS_NORECOMPUTE &nbsp;= OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS &nbsp;= ON, ALLOW_PAGE_LOCKS &nbsp;= ON) ON [PRIMARY]</p>
+<p>) ON [PRIMARY]</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>SET ANSI_PADDING OFF</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.31 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE ITEM_NOTA_FISCAL</p>
+<p>ADD II_ALIQUOTA NUMERIC(15,4)</p>
+<p>&nbsp;</p>
+<p>GO</p>
+<p>&nbsp;</p>
+<p>---------------------- 1.5.28 ----------------------</p>
+<p>&nbsp;</p>
+<p>ALTER TABLE EMPRESA</p>
+<p>ADD LOGO IMAGE</p>
