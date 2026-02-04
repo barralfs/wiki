@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-04T17:34:41.018Z
+date: 2026-02-04T17:59:07.101Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -29,6 +29,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 - Erro ao integrar - Chave de Acesso: [erro-ao-integrar-chave-de-acesso](/Sync/erro-ao-integrar-chave-de-acesso)
 - Erro ao integrar - Item repetido: [erro-item-repetido](/Sync/erro-item-repetido)
 - Erro ao integrar - Limite máximo de itens por tipo de movimento: [erro-integracao-limite-maximo-itens-tipo-movimento](/Sync/erro-integracao-limite-maximo-itens-tipo-movimento)
+- Erro ao integrar - O Lançamento não pode ser salvo, pois a soma das partidas a débito é diferente da soma das partidas a crédito: [soma-partidas-debito-diferente-soma-partidas-credito](/Sync/soma-partidas-debito-diferente-soma-partidas-credito)
 - Erro de Driver de SQL: [erro-driver-sql](/Sync/erro-driver-sql)
 - Erro de consumo indevido: [consumo-indevido](/Sync/consumo-indevido)
 - Erros de integração - Diferenças de valores: [erros-diferencas-valores](/Sync/erros-diferencas-valores)
