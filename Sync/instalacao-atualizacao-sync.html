@@ -2,7 +2,7 @@
 title: Instalação e atualização do Sync
 description: 
 published: true
-date: 2026-02-04T14:50:29.511Z
+date: 2026-02-04T14:52:51.209Z
 tags: sync
 editor: ckeditor
 dateCreated: 2025-11-13T14:31:17.477Z
@@ -17,12 +17,12 @@ dateCreated: 2025-11-13T14:31:17.477Z
       <li><strong>Se o cliente já utiliza o Sync:</strong>
         <ol>
           <li>Acesse uma máquina onde o Sync já esteja instalado.</li>
-          <li>Copie a pasta <strong>C:\Sync</strong>.</li>
+          <li>Copie a pasta <code>C:\Sync</code>.</li>
           <li><i>Dica:</i> compacte a pasta para facilitar o envio.</li>
         </ol>
       </li>
       <li><strong>Se o cliente ainda não utiliza o Sync</strong>:<ol>
-          <li>Copie a pasta padrão disponível em: <strong>F:\Todos\Instalar\Sync</strong></li>
+          <li>Copie a pasta padrão disponível em: <code>F:\Todos\Instalar\Sync</code></li>
         </ol>
       </li>
     </ul>
@@ -32,8 +32,8 @@ dateCreated: 2025-11-13T14:31:17.477Z
 <ul>
   <li><strong>Preparação da máquina de destino</strong>
     <ol>
-      <li>Na máquina onde o Sync será instalado, cole ou extraia a pasta <strong>C:\Sync</strong>.</li>
-      <li>Acesse a pasta: <strong>C:\Sync\Util</strong></li>
+      <li>Na máquina onde o Sync será instalado, cole ou extraia a pasta <code>C:\Sync</code>.</li>
+      <li>Acesse a pasta: <code>C:\Sync\Util</code></li>
       <li>Execute o instalador <strong>Microsoft ODBC Driver 18 for SQL Server.</strong></li>
     </ol>
   </li>
@@ -42,7 +42,7 @@ dateCreated: 2025-11-13T14:31:17.477Z
 <ul>
   <li><strong>Criação do atalho do Sync</strong>
     <ol>
-      <li>Na pasta C:\Sync, localize o arquivo AutoUpdate.exe.</li>
+      <li>Na pasta <code>C:\Sync</code>, localize o arquivo AutoUpdate.exe.</li>
       <li>Crie um atalho na área de trabalho.</li>
       <li>Renomeie o atalho para <strong>Sync</strong>.</li>
     </ol>
@@ -94,22 +94,18 @@ dateCreated: 2025-11-13T14:31:17.477Z
 <ul>
   <li><strong>Backup do executável atual</strong>
     <ol>
-      <li>Acesse a pasta <strong>C:\Sync </strong>no ambiente do cliente</li>
+      <li>Acesse a pasta <code>C:\Sync</code><strong> </strong>no ambiente do cliente</li>
       <li>Renomeie o arquivo <strong>Sync.exe</strong> para: Sync_[versao]_[data].exe</li>
     </ol>
   </li>
 </ul>
 <figure class="image"><img src="/imagens_sync/image_(57).png"></figure>
 <ul>
-  <li><strong>Substituição do executável</strong>
+  <li><strong>Substituição do executável e validação da atualização</strong>
     <ol>
-      <li>No seu ambiente, acesse: <strong>F:\Todos\Instalar\Sync</strong></li>
+      <li>No seu ambiente, acesse: <code>F:\Todos\Instalar\Sync</code></li>
       <li>Copie o arquivo <strong>Sync.exe</strong> atualizado.</li>
-      <li>Cole o arquivo na pasta <strong>C:\Sync</strong> da máquina do cliente.</li>
-    </ol>
-  </li>
-  <li><strong>Validação da atualização</strong>
-    <ol>
+      <li>Cole o arquivo na pasta <code>C:\Sync</code> da máquina do cliente.</li>
       <li>Execute o <strong>AutoUpdate.exe</strong>.</li>
       <li>Confirme se o Sync abre normalmente e se a versão foi atualizada.</li>
     </ol>
