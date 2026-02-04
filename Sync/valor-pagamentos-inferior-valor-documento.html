@@ -1,0 +1,43 @@
+<!--
+title: Erros de integração - Diferenças de valores
+description: 
+published: true
+date: 2026-02-04T12:48:38.721Z
+tags: sync
+editor: ckeditor
+dateCreated: 2025-12-12T13:44:04.057Z
+-->
+
+<h1>Erros de integração - Diferenças de valores</h1>
+<p>Existem diversos erros de integração relacionados a <strong>diferenças de valores</strong>. Essas divergências podem estar associadas a <strong>tributos, descontos e outras despesas</strong>.</p>
+<p>Antes de qualquer ajuste, é importante analisar a nota fiscal e conferir todos esses campos. Também é recomendado verificar o arquivo <strong>XML_TBC</strong>, localizado na pasta do Sync, para identificar como o sistema tentou realizar a integração da nota.<br>&nbsp;</p>
+<h2><strong>Possíveis causas dos erros</strong></h2>
+<ul>
+  <li>Pagamento da nota fiscal não preenchido.</li>
+  <li>Associação de Ordem de Compra incorreta.</li>
+  <li>Divergência nas casas decimais ou arredondamentos utilizados pelo fornecedor.</li>
+  <li>Fórmula de valor bruto do RM parametrizada incorretamente.</li>
+  <li>Fórmulas de tributos não cadastradas ou que necessitam de ajustes.</li>
+  <li>Opção <i>Integrar Valor Condicional</i> habilitada no movimento.</li>
+</ul>
+<h2><strong>Como ajustar a fórmula no RM</strong></h2>
+<p>Acesse o menu <strong>BackOffice &gt; Gestão de Estoque, Compras e Faturamento.</strong></p>
+<figure class="image"><img src="/image32.png"></figure>
+<p>No canto superior, selecione <strong>Ambiente &gt; Parâmetros &gt; Gestão de Estoque, Compras e Faturamento.</strong></p>
+<figure class="image"><img src="/image33.png"></figure>
+<p>Clique em <strong>Avançar</strong>, acesse <strong>Outras Movimentações</strong> e clique novamente em <strong>Avançar</strong>.</p>
+<figure class="image"><img src="/image34.png"></figure>
+<p>Selecione o movimento desejado e clique em <strong>Parametrizar</strong>.</p>
+<figure class="image"><img src="/image35.png"></figure>
+<p>Acesse a aba <strong>Mov – Valores Financeiros (2/4)</strong> e ajuste a fórmula conforme o modelo da imagem.</p>
+<figure class="image"><img src="/image36.png"></figure>
+<figure class="image"><img src="/image37.png"></figure>
+<p>Em <strong>Item - Preços</strong>, marque a opção <strong>Editar Preço Total</strong> e selecione <strong>Calcular Preço Unitário</strong>.</p>
+<figure class="image"><img src="/image38.png"></figure>
+<h2><strong>Outras formas de verificar o erro</strong></h2>
+<p>Caso a opção <strong>Integrar Valor Condicional</strong> esteja habilitada no movimento, recomenda-se <strong>desabilitá-la pressionando a tecla Delete</strong> no campo correspondente.</p>
+<figure class="image"><img src="/imagens_sync/imagens_sync/screenshot_2.png"></figure>
+<p>Em <strong>Documentos Fiscais de Entrada</strong>, clique com o botão direito sobre a nota, selecione <strong>Editar Pagamentos</strong> e verifique se o pagamento está devidamente preenchido.</p>
+<figure class="image"><img src="/imagens_sync/imagens_sync/screenshot_3.png"></figure>
+<p>Ainda em <strong>Documentos Fiscais de Entrada</strong>, clique com o botão direito na nota e selecione <strong>Associar Ordem de Compra</strong>, confirmando se os itens foram associados corretamente.</p>
+<figure class="image"><img src="/imagens_sync/imagens_sync/screenshot_5.png"></figure>
