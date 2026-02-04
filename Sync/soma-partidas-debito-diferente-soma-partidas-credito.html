@@ -1,0 +1,25 @@
+<!--
+title: Erro ao integrar - O Lançamento não pode ser salvo, pois a soma das partidas a débito é diferente da soma das partidas a crédito
+description: 
+published: true
+date: 2026-02-04T17:57:52.534Z
+tags: sync
+editor: ckeditor
+dateCreated: 2026-02-04T17:57:52.534Z
+-->
+
+<h1>Erro ao integrar - O Lançamento não pode ser salvo, pois a soma das partidas a débito é diferente da soma das partidas a crédito</h1>
+<figure class="image"><img src="/imagens_sync/imagem1.png"></figure>
+<p>✅ Passo a passo para correção:</p>
+<ul>
+  <li>Identificar o <strong>CNPJ do Fornecedor</strong> no <strong>DANFE</strong>.</li>
+  <li>Acessar <strong>Cadastro do Fornecedor</strong> no RM → <strong>Dados Adicionais → Defaults Contábeis → Fornecedor</strong> e verificar se há <strong>contas contábeis cadastradas</strong>.</li>
+  <li>No <strong>RM → Ambiente → Parâmetros → Gestão de Estoque, Compras e Faturamento</strong>:<ul>
+      <li>Localizar o <strong>Movimento</strong> que está sendo integrado.</li>
+      <li>Na <strong>Etapa 51 – Contabilidade</strong>, acessar o parâmetro <strong>"Habilita Evento Contábil"</strong> e definir como <strong>"Não Utiliza Evento"</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Executar a Integração no Sync XML</strong>.</li>
+  <li>Após a integração, retornar ao parâmetro <strong>"Habilita Evento Contábil"</strong> e definir como <strong>"Utiliza Evento por Tipo de Movimento"</strong>.</li>
+  <li>Acessar o <strong>movimento integrado → Lançamentos → Contábil → Refazer Contabilização</strong> para identificar a origem do erro e orientar o cliente quanto a correção.</li>
+</ul>
