@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-04T13:53:17.935Z
+date: 2026-02-04T13:56:20.864Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -10,7 +10,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 
 # Home
 ## Configurações
-- Cadastros de movimentos: [cadastros-de-movimentos](/pt-br/Sync/cadastros-de-movimentos)
+- Cadastros de movimentos: [cadastros-de-movimentos](/Sync/cadastros-de-movimentos)
 - Configuração de certificado digital: [configuracao-certificado-digital](/pt-br/Sync/configuracao-certificado-digital)
 - Criação de perfis de usuários: [criacao-perfis-usuarios](/pt-br/Sync/criacao-perfis-usuarios)
 - Criação de usuários: [criacao-usuarios](/pt-br/Sync/criacao-usuarios)
