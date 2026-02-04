@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-04T14:54:07.304Z
+date: 2026-02-04T17:34:41.018Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -22,6 +22,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 - Parametrização de tributos: [parametrizacao-tributos](/Sync/parametrizacao-tributos)
 - Reiniciar NSU: [reiniciar-nsu](/Sync/reiniciar-nsu)
 - Scripts de Atualização Sync: [scripts-atualização-sync](/Sync/scripts-atualização-sync)
+- Usuário sem permissão para editar informações dos itens do Documento Fiscal: [usuario-sem-permissao-editar-documentos-fiscais](/Sync/usuario-sem-permissao-editar-documentos-fiscais) 
 
 ## Erros
 - Erro 401 - Unauthorized (Não autorizado): [erro-401-nao-autorizado](/Sync/erro-401-nao-autorizado)
