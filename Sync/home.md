@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-04T17:59:07.101Z
+date: 2026-02-06T12:21:30.560Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -13,6 +13,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 - Instalação e atualização do Sync: [instalacao-atualizacao-sync](/Sync/instalacao-atualizacao-sync)
 
 ## Configurações
+- Abrir Sync sem AutoUpdate: [abrir-sync-sem-auto-update](/Sync/abrir-sync-sem-auto-update)
 - Cadastros de movimentos: [cadastros-de-movimentos](/Sync/cadastros-de-movimentos)
 - Configuração de certificado digital: [configuracao-certificado-digital](/Sync/configuracao-certificado-digital)
 - Criação de perfis de usuários: [criacao-perfis-usuarios](/Sync/criacao-perfis-usuarios)
