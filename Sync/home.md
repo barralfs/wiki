@@ -2,13 +2,13 @@
 title: Home
 description: 
 published: true
-date: 2026-02-06T12:21:30.560Z
+date: 2026-02-06T12:21:52.088Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
 ---
 
-# Home
+# Índice
 ## Instalações
 - Instalação e atualização do Sync: [instalacao-atualizacao-sync](/Sync/instalacao-atualizacao-sync)
 
