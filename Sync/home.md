@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-06T12:21:52.088Z
+date: 2026-02-09T16:49:41.522Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -11,6 +11,9 @@ dateCreated: 2026-01-26T17:53:12.125Z
 # Índice
 ## Instalações
 - Instalação e atualização do Sync: [instalacao-atualizacao-sync](/Sync/instalacao-atualizacao-sync)
+
+## Manuais
+- Manual Básico – Utilização do Sync: [manual-basico](/Sync/manual-basico)
 
 ## Configurações
 - Abrir Sync sem AutoUpdate: [abrir-sync-sem-auto-update](/Sync/abrir-sync-sem-auto-update)
