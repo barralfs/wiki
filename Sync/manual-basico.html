@@ -2,7 +2,7 @@
 title: Manual Básico – Utilização do Sync
 description: 
 published: true
-date: 2026-02-09T14:58:28.053Z
+date: 2026-02-09T16:33:32.708Z
 tags: sync
 editor: ckeditor
 dateCreated: 2026-02-09T13:49:42.594Z
@@ -95,3 +95,39 @@ dateCreated: 2026-02-09T13:49:42.594Z
 </ul>
 <p>Clique em <strong>OK</strong> para continuar.</p>
 <figure class="image"><img src="/imagens_sync/image_(74).png"></figure>
+<h2>6. Validação das Ordens de Compra</h2>
+<p>Após a associação, o sistema exibirá a tela de <strong>Validação das Ordens de Compra</strong>, podendo ocorrer três situações:</p>
+<h3>Situação 1 – Valores e quantidades iguais</h3>
+<ul>
+  <li>Quantidade e valor da Nota Fiscal <strong>iguais</strong> aos da Ordem de Compra.</li>
+  <li>Basta clicar em <strong>OK</strong> e prosseguir.</li>
+</ul>
+<figure class="image"><img src="/imagens_sync/image_(75).png"></figure>
+<h3>Situação 2 – Nota Fiscal maior que a Ordem de Compra</h3>
+<ul>
+  <li>A Nota Fiscal possui <strong>quantidade ou valor maior</strong> que a Ordem de Compra.</li>
+  <li>O sistema <strong>bloqueia a integração</strong>.</li>
+  <li>O usuário deve revisar e corrigir a associação.</li>
+</ul>
+<figure class="image"><img src="/imagens_sync/image_(76).png"></figure>
+<h3>Situação 3 – Ordem de Compra maior que a Nota Fiscal</h3>
+<ul>
+  <li>A Ordem de Compra possui <strong>quantidade ou valor maior</strong> que a Nota Fiscal.</li>
+  <li>O sistema permite continuar, informando que a Ordem de Compra será integrada como <strong>Parcialmente Recebida</strong>.</li>
+</ul>
+<figure class="image"><img src="/imagens_sync/image_(77).png"></figure>
+<h2>7. Integração com Movimento Final</h2>
+<p>Após a validação:</p>
+<ol>
+  <li>O sistema exibirá a tela final de integração.</li>
+  <li>Essa tela contém campos equivalentes aos campos do <strong>TOTVS RM</strong>.</li>
+  <li>Preencha os campos da <strong>mesma forma que no RM</strong>.</li>
+  <li>Clique em <strong>Continuar</strong>.</li>
+</ol>
+<figure class="image"><img src="/imagens_sync/image_(78).png"></figure>
+<h3>Resultado da Integração</h3>
+<ul>
+  <li>✅ <strong>Sucesso:</strong> o sistema informará que a integração foi realizada com êxito.</li>
+  <li>❌ <strong>Erro:</strong> o sistema exibirá uma mensagem com o motivo da falha.</li>
+</ul>
+<p>O usuário deve analisar a mensagem e ajustar as informações conforme indicado.</p>
