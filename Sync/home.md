@@ -2,20 +2,20 @@
 title: Home
 description: 
 published: true
-date: 2026-02-09T16:49:41.522Z
+date: 2026-02-09T18:22:56.860Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
 ---
 
 # Índice
-## Instalações
+## 📦 Instalações
 - Instalação e atualização do Sync: [instalacao-atualizacao-sync](/Sync/instalacao-atualizacao-sync)
 
-## Manuais
+## 📘 Manuais
 - Manual Básico – Utilização do Sync: [manual-basico](/Sync/manual-basico)
 
-## Configurações
+## ⚙️ Configurações
 - Abrir Sync sem AutoUpdate: [abrir-sync-sem-auto-update](/Sync/abrir-sync-sem-auto-update)
 - Cadastros de movimentos: [cadastros-de-movimentos](/Sync/cadastros-de-movimentos)
 - Configuração de certificado digital: [configuracao-certificado-digital](/Sync/configuracao-certificado-digital)
@@ -28,7 +28,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 - Scripts de Atualização Sync: [scripts-atualização-sync](/Sync/scripts-atualização-sync)
 - Usuário sem permissão para editar informações dos itens do Documento Fiscal: [usuario-sem-permissao-editar-documentos-fiscais](/Sync/usuario-sem-permissao-editar-documentos-fiscais) 
 
-## Erros
+## ❌ Erros
 - Erro 401 - Unauthorized (Não autorizado): [erro-401-nao-autorizado](/Sync/erro-401-nao-autorizado)
 - Erro ao integrar - Chave de Acesso: [erro-ao-integrar-chave-de-acesso](/Sync/erro-ao-integrar-chave-de-acesso)
 - Erro ao integrar - Item repetido: [erro-item-repetido](/Sync/erro-item-repetido)
