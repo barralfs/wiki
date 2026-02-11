@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-09T18:22:56.860Z
+date: 2026-02-11T12:42:06.518Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -31,6 +31,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 ## ❌ Erros
 - Erro 401 - Unauthorized (Não autorizado): [erro-401-nao-autorizado](/Sync/erro-401-nao-autorizado)
 - Erro ao integrar - Chave de Acesso: [erro-ao-integrar-chave-de-acesso](/Sync/erro-ao-integrar-chave-de-acesso)
+- Erro ao integrar - Controle de lote não habilitado: [controle-lote-nao-habilitado](/Sync/controle-lote-nao-habilitado)
 - Erro ao integrar - Item repetido: [erro-item-repetido](/Sync/erro-item-repetido)
 - Erro ao integrar - Limite máximo de itens por tipo de movimento: [erro-integracao-limite-maximo-itens-tipo-movimento](/Sync/erro-integracao-limite-maximo-itens-tipo-movimento)
 - Erro ao integrar - O Lançamento não pode ser salvo, pois a soma das partidas a débito é diferente da soma das partidas a crédito: [soma-partidas-debito-diferente-soma-partidas-credito](/Sync/soma-partidas-debito-diferente-soma-partidas-credito)
