@@ -2,7 +2,7 @@
 title: Erro ao integrar - Controle de lote não habilitado
 description: 
 published: true
-date: 2026-02-11T12:33:56.687Z
+date: 2026-02-11T12:40:14.169Z
 tags: sync
 editor: ckeditor
 dateCreated: 2026-02-11T12:26:03.042Z
@@ -13,15 +13,16 @@ dateCreated: 2026-02-11T12:26:03.042Z
 <figure class="image"><img src="/imagens_sync/nhdkp_1770404028053_3eb0ad6d2ad77742fbd8c3-64000189_(2).jpg"></figure>
 <h2>Verificações</h2>
 <h3>1. Cadastro do Produto</h3>
-<p>Acesse o cadastro do produto e verifique se a opção <strong>Controla Lote</strong> está marcada ou não.</p>
+<p>Acesse o cadastro do produto e verifique se a opção <strong>Controlado por Lote</strong> está marcada ou não.</p>
 <figure class="image"><img src="/imagens_sync/image_(79).png"></figure>
 <h3>2. Tipo de Movimento (MOV)</h3>
 <p>Acesse:<br><strong>Ambiente &gt; Parâmetros &gt; Gestão de Estoque, Compras e Faturamento</strong></p>
-<p>Selecione o movimento e vá até:<br><strong>Item – Lote / Grade / Nº de Série</strong></p>
-<p>Verifique se o parâmetro <strong>“Consiste Lote”</strong> está marcado.</p>
+<p>Selecione o movimento e vá até:<br><strong>Item – Lote / Grade / Num. Série</strong></p>
+<p>Verifique se o parâmetro <strong>“Consiste Lote”</strong> está marcado ou não.</p>
+<figure class="image"><img src="/imagens_sync/image_(80).png"></figure>
 <h2>Regra</h2>
 <ul>
-  <li>Produto controla lote → Movimento deve consistir lote</li>
-  <li>Produto não controla lote → Movimento não pode exigir lote</li>
+  <li>Produto controlado por lote → Movimento deve consistir lote</li>
+  <li>Produto não controlado por lote → Movimento não pode consistir lote</li>
 </ul>
 <p>Após o ajuste, salve e refaça a integração.</p>
