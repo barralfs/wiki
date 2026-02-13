@@ -1,0 +1,130 @@
+<!--
+title: 4 -  Os Sistemas e o Config.ini
+description: 
+published: true
+date: 2026-02-13T16:10:02.992Z
+tags: 
+editor: ckeditor
+dateCreated: 2025-11-14T12:39:32.012Z
+-->
+
+<h2 style="text-align:justify;">Sistemas</h2>
+<p style="text-align:justify;"><strong>Organ (ERP principal)</strong><br>Sistema de gestão empresarial completo, que controla operações fiscais, financeiras, estoques, vendas, compras, produção, contratos e relatórios gerenciais, com módulos específicos para diferentes ramos (material de construção, agro, serviços etc.).</p>
+<p style="text-align:justify;"><strong>OrganPDV</strong><br>Frente de caixa integrada ao banco de dados do Organ para emissão de NFC-e (cupom fiscal eletrônico) no ponto de venda, substituindo emissores de terceiros e permitindo a importação de vendas efetuadas no Organ.</p>
+<p style="text-align:justify;"><strong>DAV</strong><br>Módulo de Documento Auxiliar de Venda (pré-venda), efetuando o registro antes da emissão do cupom/nota, integrado com o banco de dados do Organ.</p>
+<p style="text-align:justify;"><strong>FrontSeller (versão original)</strong><br>Aplicativo mobile focado em vendedores externos e pronta-entrega, permitindo realizar vendas em campo, emitir NF-e e depois integrar essas notas ao ERP Organ ou ao RM da Totvs.</p>
+<p style="text-align:justify;"><strong>FrontSeller 2</strong><br>Nova versão do app de emissão de pedidos, reconstruída em tecnologia mais moderna, focada em emissão de pedidos de venda via smartphone, sem necessidade de configuração local no cliente para conectar com o servidor.</p>
+<p style="text-align:justify;"><strong>OrganAPP</strong><br>Aplicativo mobile do Organ para emissão de pré-vendas diretamente pelo smartphone, ideal para uso em showroom/loja, permitindo ao vendedor gerar vendas enquanto apresenta os produtos ao cliente.</p>
+<p style="text-align:justify;"><strong>FrontStore</strong><br>Aplicativo conectado em tempo real ao banco de dados do Organ para controlar comandas, ordens de serviço, conferência de pedidos de venda e consulta de estoque, otimizando a operação de lojas e serviços.</p>
+<p style="text-align:justify;"><strong>SYNC</strong><br>Sistema de integração de notas fiscais de entrada com o RM da TOTVS, automatizando a importação de XMLs e reduzindo erros e retrabalho no lançamento de notas.</p>
+<p style="text-align:justify;"><strong>MakeLabel</strong><br>Sistema de automação de etiquetas, voltado especialmente para empresas com alto volume de etiquetagem (como fabricantes de calçados), gerando etiquetas de produtos de forma rápida e padronizada.</p>
+<p style="text-align:justify;"><strong>VDM</strong><br>Ponto de venda especializado desenvolvido como extensão do ERP RM da Totvs, voltado para otimizar o registro de vendas em ambientes de balcão/loja, facilitando o trabalho do vendedor.</p>
+<p style="text-align:justify;"><strong>Logis</strong><br>Sistema criado para o mercado africano (especialmente Angola), focado em empresas prestadoras de serviços de transporte, adaptado às normas fiscais locais e às necessidades logísticas do país.</p>
+<p style="text-align:justify;"><strong>FrontDesk</strong><br>Sistema interno da Frontsys para gestão de contratos, implantações, chamados de suporte e Ordens de Serviço de desenvolvimento, funcionando como central de atendimento e controle operacional interno.</p>
+<p style="text-align:justify;">&nbsp;</p>
+<h2 style="text-align:justify;">Config</h2>
+<p style="text-align:justify;">O config é um arquivo .txt que existe em toda a pasta raiz dos sistemas da Frontsys. Ele visa controlar algumas configurações de acesso do sistema e conexão ao banco de dados.</p>
+<h4 style="text-align:justify;">Organ</h4>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=localhost/3050:C:\Organ\Dados\DB_ORGAN.FDB
+TipoConexao=1
+IdCliente=1377
+Licenca=D8C798D14F351346
+VersaoBanner=0
+LinkBanner=https://www.youtube.com/playlist?list=PLouE0wvnid-nQ-F6c2OavIxIdeNFWPffZ</code></pre>
+<p style="text-align:justify;">A configuração acima nos mostra um padrão de um config do Organ em que:</p>
+<ul>
+  <li style="text-align:justify;"><i>DataBase </i>é o caminho que aponta o local do arquivo que corresponde ao banco de dados do Organ. O banco padrão é nomeado como DB_ORGAN.FDB. FDB é a extensão do arquivo que corresponde a um banco de dados do tipo firebird. O DataBase é composto pelo local, podendo ser um IP ou um nome de máquina e no exemplo está definido como localhost, concatenado com uma porta, que no exemplo é a 3050 e o caminho do banco.</li>
+  <li style="text-align:justify;"><i>TipoConexao </i>é a informação que dita se a máquina é um servidor ou uma estação, sendo 1 a opção para servidor e 2 para estação.</li>
+  <li style="text-align:justify;"><i>IdCliente </i>é o código do cliente cadastrado no FrontDesk.</li>
+  <li style="text-align:justify;"><i>Licenca </i>é o código que dita a licença preenchida no FrontDesk.</li>
+  <li style="text-align:justify;"><i>VersaoBanner </i>e <i>LinkBanner </i>são informações de configurações do banner de exibição de informações de dentro do sistema.</li>
+</ul>
+<h4 style="text-align:justify;">OrganPDV</h4>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=C:\Frontsys\001 - DBs\Taioba\DB_ORGAN_2025_11_07.FDB
+Server=localhost
+Port=3050
+Licenca=8D9F9D823CC137B3
+IdCliente=82
+VersaoBanner=0
+LinkBanner=
+
+[Pagamento]
+IdConta=2
+
+[PDV]
+Serie=0
+NumeroInicial=0
+ImpressaoAutomatica=N
+ImpressoraPadrao=
+ESCPOS=N
+TabelaPreco=
+JustificativaContigencia=Falha na conexão com o servidor da SEFAZ
+IdEmpresa=1</code></pre>
+<p style="text-align:justify;">A configuração do OrganPDV é um pouco mais completa, mas com uma semelhança à configuração do Organ.</p>
+<ul>
+  <li style="text-align:justify;"><i>DataBase </i>é o caminho que aponta o local do arquivo que corresponde ao banco de dados do Organ, ao qual o PDV também está conectado.</li>
+  <li style="text-align:justify;"><i>Server </i>é a máquina aonde se encontra o banco de dados. Sendo que <i>localhost </i>nos diz que o servidor está na mesma máquina em que estamos abrindo o arquivo <i>config</i>.</li>
+  <li style="text-align:justify;"><i>Port </i>é a porta do firebird utilizada para se conectar ao banco de dados.</li>
+  <li style="text-align:justify;"><i>Licenca </i>é o código que dita a licença preenchida no FrontDesk.</li>
+  <li style="text-align:justify;"><i>IdCliente </i>é o código do cliente cadastrado no FrontDesk.</li>
+  <li style="text-align:justify;"><i>VersaoBanner </i>e <i>LinkBanner </i>são informações de configurações do banner de exibição de informações de dentro do sistema.</li>
+  <li style="text-align:justify;"><i>IdConta </i>é uma informação que dita em qual conta do sistema a informação da duplicata da NFC-e ficará informada.</li>
+  <li style="text-align:justify;"><i>Serie </i>é a configuração do número de série para a emissão das NFC-e efetuadas por essa instalação do OrganPDV.</li>
+  <li style="text-align:justify;"><i>NumeroInicial </i>é o número inicial das NFC-e nessa série.</li>
+  <li style="text-align:justify;"><i>ImpressaoAutomatica </i>é um parâmetro que dita se haverá ou não a impressão automática da NFC-e após a conclusão da sua emissão.</li>
+  <li style="text-align:justify;"><i>ImpressoraPadrao </i>é a opção para se definir em qual das impressoras configuradas será impresso a NFC-e.</li>
+  <li style="text-align:justify;"><i>ESCPOS </i>é um parâmetro feito para controlar impressoras de ponto de venda (POS), como impressoras térmicas de recibos. O "ESC" refere-se a um código de escape, e "POS" significa "Point of Sale" (Ponto de Venda).</li>
+  <li style="text-align:justify;"><i>TabelaPreco </i>é um parâmetro que dita a partir de qual campo de preço do produto no Organ será buscado o preço de venda informado na NFC-e. Quando está vazio puxa o preço padrão, quando é preenchido como 1 é o segundo campo de preço do Organ e assim sucessivamente.</li>
+  <li style="text-align:justify;"><i>IdEmpresa </i>define em qual das empresas de dentro do banco de dados será feita a emissão da NFC-e.</li>
+</ul>
+<h4 style="text-align:justify;">DAV</h4>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=D:\Dados\Organ\DB_ORGAN.FDB
+Server=localhost
+Port=3050
+Licenca=2F58C3D6C37016B5
+
+[DAV]
+IdEmpresa=1
+IdTipoReceita=1
+ImpressaoAutomatica=N
+ImpressoraPadrao=
+
+[Pagamento]</code></pre>
+<p>A configuração do DAV é bem semelhante à configuração do OrganPDV.</p>
+<ul>
+  <li style="text-align:justify;"><i>DataBase </i>é o caminho que aponta o local do arquivo que corresponde ao banco de dados do Organ, ao qual o PDV também está conectado.</li>
+  <li style="text-align:justify;"><i>Server </i>é a máquina aonde se encontra o banco de dados. Sendo que <i>localhost </i>nos diz que o servidor está na mesma máquina em que estamos abrindo o arquivo <i>config</i>.</li>
+  <li style="text-align:justify;"><i>Port </i>é a porta do firebird utilizada para se conectar ao banco de dados.</li>
+  <li style="text-align:justify;"><i>Licenca </i>é o código que dita a licença preenchida no FrontDesk.</li>
+  <li style="text-align:justify;"><i>IdEmpresa </i>define em qual das empresas de dentro do banco de dados será feita a emissão da Venda e Receita.</li>
+  <li style="text-align:justify;"><i>IdTipoReceita </i>define em qual tipo receita do banco de dados será feita a emissão da Venda e Receita.</li>
+  <li style="text-align:justify;"><i>ImpressaoAutomatica </i>é um parâmetro que dita se haverá ou não a impressão automática do relatório de Venda e Receita após a conclusão da sua emissão.</li>
+  <li style="text-align:justify;"><i>ImpressoraPadrao </i>é a opção para se definir em qual das impressoras configuradas será impresso o relatório de Vendas e Receitas.</li>
+</ul>
+<h2>Caminho da Instalação</h2>
+<p style="text-align:justify;">Por padrão, geralmente, o sistema fica instalado no disco local C da máquina, porém, é importante que o analista saiba identificar aonde se encontra a pasta raiz da instalação.</p>
+<p style="text-align:justify;"><strong>Passo 1:</strong> Caso exista um executável, na área de trabalho, que abra o sistema, clique com o botão direito nele.</p>
+<p style="text-align:justify;"><strong>Passo 2:</strong> Selecione a opção de ‘abrir o local do arquivo’, caso o Windows seja o 11, será necessário mostrar mais opções para identificar a opção de 'abrir o local do arquivo'.</p>
+<p style="text-align:justify;"><strong>Passo 3:</strong> Você estará dentro da instalação do sistema.</p>
+<p style="text-align:justify;"><strong>Atenção!</strong> Caso não exista um atalho na área de trabalho, busque no disco local C diretamente. São exemplos de caminhos de instalação dos sistemas da Frontsys:</p>
+<ul>
+  <li style="text-align:justify;">C:\Organ</li>
+  <li style="text-align:justify;">C:\DAV</li>
+  <li style="text-align:justify;">C:\CustoFacil</li>
+  <li style="text-align:justify;">C:\IntegradorFrontStore</li>
+  <li style="text-align:justify;">C:\OrganPDV</li>
+</ul>
+<h2 style="text-align:justify;">Firebird</h2>
+<p style="text-align:justify;">A grande parte dos sistemas da Frontsys fazem uso da estrutura de banco de dados do Firebird 3.0. Ele é responsável por&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
+<p style="text-align:justify;">&nbsp;</p>
