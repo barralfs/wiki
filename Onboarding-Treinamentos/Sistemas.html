@@ -2,7 +2,7 @@
 title: 4 -  Os Sistemas e o Config.ini
 description: 
 published: true
-date: 2026-02-13T16:39:51.343Z
+date: 2026-02-13T19:21:57.939Z
 tags: 
 editor: ckeditor
 dateCreated: 2025-11-14T12:39:32.012Z
@@ -97,7 +97,7 @@ ImpressoraPadrao=
 [Pagamento]</code></pre>
 <p>A configuração do DAV é bem semelhante à configuração do OrganPDV.</p>
 <ul>
-  <li style="text-align:justify;"><i>DataBase </i>é o caminho que aponta o local do arquivo que corresponde ao banco de dados do Organ, ao qual o PDV também está conectado.</li>
+  <li style="text-align:justify;"><i>DataBase </i>é o caminho que aponta o local do arquivo que corresponde ao banco de dados do Organ, ao qual o DAV também está conectado.</li>
   <li style="text-align:justify;"><i>Server </i>é a máquina aonde se encontra o banco de dados. Sendo que <i>localhost </i>nos diz que o servidor está na mesma máquina em que estamos abrindo o arquivo <i>config</i>.</li>
   <li style="text-align:justify;"><i>Port </i>é a porta do firebird utilizada para se conectar ao banco de dados.</li>
   <li style="text-align:justify;"><i>Licenca </i>é o código que dita a licença preenchida no FrontDesk.</li>
@@ -105,6 +105,37 @@ ImpressoraPadrao=
   <li style="text-align:justify;"><i>IdTipoReceita </i>define em qual tipo receita do banco de dados será feita a emissão da Venda e Receita.</li>
   <li style="text-align:justify;"><i>ImpressaoAutomatica </i>é um parâmetro que dita se haverá ou não a impressão automática do relatório de Venda e Receita após a conclusão da sua emissão.</li>
   <li style="text-align:justify;"><i>ImpressoraPadrao </i>é a opção para se definir em qual das impressoras configuradas será impresso o relatório de Vendas e Receitas.</li>
+</ul>
+<h4 style="text-align:justify;">FrontStore</h4>
+<pre><code class="language-plaintext">[Configuracao]
+DataBase=C:\Frontsys\001 - DBs\Taioba\DB_ORGAN.FDB
+Server=localhost
+Port=3050
+IdEmpresa=1
+PortaServidor=8085
+
+;[Grupo1]
+;PortaPOS=USB
+;LinhasEntreCupons=1
+;ModeloPos=1
+
+;[Grupo2]
+;PortaPOS=USB
+;LinhasEntreCupons=3
+;ModeloPos=1
+
+;[Grupo3]
+;PortaPOS=USB
+;LinhasEntreCupons=3
+;ModeloPos=1</code></pre>
+<p>A configuração do FrontStore possui o padrão da configuração dos sistemas da Frontsys.</p>
+<ul>
+  <li style="text-align:justify;"><i>DataBase </i>é o caminho que aponta o local do arquivo que corresponde ao banco de dados do Organ, ao qual o FrontStore também está conectado.</li>
+  <li style="text-align:justify;"><i>Server </i>é a máquina aonde se encontra o banco de dados. Sendo que <i>localhost </i>nos diz que o servidor está na mesma máquina em que estamos abrindo o arquivo <i>config</i>.</li>
+  <li style="text-align:justify;"><i>Port </i>é a porta do firebird utilizada para se conectar ao banco de dados.</li>
+  <li style="text-align:justify;"><i>IdEmpresa </i>define em qual das empresas de dentro do banco de dados será feita a emissão da Comanda.</li>
+  <li style="text-align:justify;"><i>PortaServidor </i>é a porta de comunicação entre a aplicação do smartphone (FrontStore) com o Integrador na máquina.</li>
+  <li style="text-align:justify;">As informações de [Grupo1] ou [Grupo2] ou [Grupo3] fazem correlação com a impressão feita automaticamente ao se configurar a estrutura de Grupos de Produtos dentro do cadastro de Produtos.</li>
 </ul>
 <h2>Caminho da Instalação</h2>
 <p style="text-align:justify;">Por padrão, geralmente, o sistema fica instalado no disco local C da máquina, porém, é importante que o analista saiba identificar aonde se encontra a pasta raiz da instalação.</p>
