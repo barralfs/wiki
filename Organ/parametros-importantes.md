@@ -2,7 +2,7 @@
 title: Parâmetros Importantes
 description: 
 published: true
-date: 2026-02-26T17:25:03.713Z
+date: 2026-02-26T17:56:03.337Z
 tags: organ
 editor: markdown
 dateCreated: 2025-12-05T17:03:51.635Z
@@ -49,7 +49,7 @@ Abaixo encontra-se a tabela com os parâmetros de configuração do sistema, seu
 | **HABILITAR_PESQUISA_ESTOQUE_FRONTSTORE** | `S` | Habilita o módulo de pesquisa de estoque. |
 | **HABILITAR_PESQUISA_PRECO_FRONTSTORE** | `S` | Habilita o módulo de pesquisa de preços. |
 | **ID_GRUPO_PRODUTO_IGNORAR_CUPOM** | `idDoGrupo` | Produtos com este ID de grupo não serão exibidos no OrganPDV. |
-| **ID_CONTA_FISCAL_BANCARIA** | `idConta` | passando o ID da conta bancaria do fiscal o PDV usa para criar as parcelas dos seguintes meios de pagamento = mpCartaoCredito, mpCartaoDebito, mpPIX_Dinamico, mpPIX_Estatico |
+| **ID_CONTA_FISCAL_BANCARIA** | `idConta` | Ao informar o identificador da conta bancária, o sistema gera automaticamente as parcelas para os seguintes pagamentos: Cartão de Crédito, Cartão de Débito, PIX Dinâmico e PIX Estático. |
 | **IMPRIMIR_ITEM_COMANDA_ORGAN** | - | Define se o item inserido pelo Organ será impresso ou não. |
 | **INFORMAR_NSU_VENDA_CARTAO_PDV** | - | Permite vincular NSU da maquininha nas operações fiscais (NF-e/NFC-e). |
 | **INFORMAR_PESO_NF_MANUALMENTE** | - | Permite digitar Peso Bruto e Líquido na aba Transportes da NF. |
