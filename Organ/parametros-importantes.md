@@ -2,7 +2,7 @@
 title: Parâmetros Importantes
 description: 
 published: true
-date: 2026-02-26T17:56:03.337Z
+date: 2026-02-26T17:57:07.339Z
 tags: organ
 editor: markdown
 dateCreated: 2025-12-05T17:03:51.635Z
