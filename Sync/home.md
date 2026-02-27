@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-12T14:42:24.157Z
+date: 2026-02-27T12:26:34.410Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -30,6 +30,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 
 ## ❌ Erros
 - [Erro 401 - Unauthorized (Não autorizado)](/Sync/erro-401-nao-autorizado)
+- [Erro ao buscar NFS-e (496 SSL Certificate Required)](/Sync/erro-496-ssl-certificate-required)
 - [Erro ao integrar - Chave de Acesso](/Sync/erro-ao-integrar-chave-de-acesso)
 - [Erro ao integrar - Controle de lote não habilitado](/Sync/controle-lote-nao-habilitado)
 - [Erro ao integrar - Item repetido](/Sync/erro-item-repetido)
