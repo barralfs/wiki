@@ -1,0 +1,24 @@
+<!--
+title: Erro ao buscar NFS-e (496 SSL Certificate Required)
+description: 
+published: true
+date: 2026-02-27T12:22:30.443Z
+tags: sync
+editor: ckeditor
+dateCreated: 2026-02-27T12:22:30.443Z
+-->
+
+<h1>Erro ao buscar NFS-e (496 SSL Certificate Required)</h1>
+<p>Na tela Download de NFS-e, ao buscar NFS-e Padrão Nacional, o Sync pode apresentar o seguinte erro:</p>
+<figure class="image"><img src="/imagens_sync/f473337c-d62d-47bb-91cd-142a40377ead.png"></figure>
+<h2>📌 Causa</h2>
+<p>Embora a mensagem indique problema com certificado, em alguns casos a causa é <strong>bloqueio do antivírus ou firewall</strong>, que impede a comunicação segura com o Ambiente Nacional.</p>
+<h2>✅ Solução</h2>
+<ul>
+  <li>Liberar os endereços da coluna <strong>Produção</strong> do link a seguir no antivírus e no firewall:<ul>
+      <li><a href="https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/apis-prod-restrita-e-producao">https://www.gov.br/nfse/pt-br/biblioteca/documentacao-tecnica/apis-prod-restrita-e-producao</a></li>
+    </ul>
+  </li>
+  <li>Adicionar o <strong>Sync </strong>nas exceções do antivírus e do firewall.</li>
+</ul>
+<p>Após a liberação, reiniciar o Sync e realizar nova busca.</p>
