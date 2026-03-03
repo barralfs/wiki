@@ -1,8 +1,8 @@
 ---
 title: Publicação do servidor do FrontSeller2 na SaveInCloud
 description: 
-published: true
-date: 2026-03-03T13:55:23.632Z
+published: false
+date: 2026-03-03T13:55:38.849Z
 tags: 
 editor: markdown
 dateCreated: 2026-03-03T13:55:23.631Z
