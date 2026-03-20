@@ -1,0 +1,71 @@
+<!--
+title: Regime Especial de Tributação
+description: 
+published: true
+date: 2026-03-20T16:43:28.417Z
+tags: 
+editor: ckeditor
+dateCreated: 2026-03-20T16:43:28.417Z
+-->
+
+<h3>ALIQUOTA_ICMS_INTERNA_PRODUTO</h3>
+<p>Exemplo de estruturação real de casos em que a alíquota de venda para clientes que ainda vão revender o produto e, nesse caso, geram o ICMS com uma alíquota especial, que no exemplo é 12%.</p>
+<pre><code class="language-plaintext">SELECT
+ CASE
+   WHEN ((:CONSUMIDOR_FINAL = 'N') AND (PESSOA.ID_ESTADO = 31))
+   THEN 12
+   ELSE PRODUTO.ALIQUOTA_ICMS_INTERNA
+ END
+FROM PRODUTO  
+INNER JOIN PESSOA ON (PESSOA.ID_PESSOA = :ID_PESSOA)
+WHERE
+ (ID_PRODUTO = :ID_PRODUTO) AND (PRODUTO.SUBSTITUICAO_TRIBUTARIA = 'N')</code></pre>
+<h3>REGISTRO_0200_C197_SPED_FISCAL</h3>
+<pre><code class="language-plaintext">SELECT
+  ITEM_NOTA_FISCAL.ID_PRODUTO,
+  ITEM_NOTA_FISCAL.ID_PRODUTO                                                                             AS DESCRICAO,
+  ITEM_NOTA_FISCAL.ICMS_VALOR,
+  IIF(NOTA_FISCAL.TIPO_DOCUMENTO_FISCAL = 1, 'ESTDEB', 'ESTCRE')                                         AS COD_OBS,
+  IIF(NOTA_FISCAL.TIPO_DOCUMENTO_FISCAL = 1, ITEM_NOTA_FISCAL.ICMS_ALIQUOTA,  0)                         AS ICMS_ALIQUOTA,
+  IIF(NOTA_FISCAL.TIPO_DOCUMENTO_FISCAL = 1, ITEM_NOTA_FISCAL.ICMS_BASE_CALC, 0)                         AS ICMS_BASE_CALC,
+  IIF(NOTA_FISCAL.TIPO_DOCUMENTO_FISCAL = 1, 'MG50000100', 'MG50000100')                                 AS COD_AJ,
+  IIF(NOTA_FISCAL.TIPO_DOCUMENTO_FISCAL = 1,
+      'Débito para a sub-apuração do item ' || ITEM_NOTA_FISCAL.ID_PRODUTO,
+      'Estorno de crédito, nos termos do inciso I do § 2º do art. 17 do e-PTA-RE nº 45.000047634-83')    AS DESCR_COMPL_AJ
+FROM ITEM_NOTA_FISCAL
+INNER JOIN PRODUTO        USING (ID_PRODUTO)
+INNER JOIN NOTA_FISCAL    USING (ID_NOTA_FISCAL)
+INNER JOIN (
+  SELECT TRIM(RESULT) AS ID_GRUPO
+  FROM SP_UTIL_SPLIT_STRING(:LISTA_GRUPO_TRIBUTARIO)
+) GRUPO ON GRUPO.ID_GRUPO = PRODUTO.ID_GRUPO_TRIBUTARIO
+WHERE NOTA_FISCAL.DATA_EMISSAO   BETWEEN :DATA_INICIO AND :DATA_FIM
+  AND NOTA_FISCAL.STATUS          = 'A'
+  AND NOTA_FISCAL.CONSUMIDOR_FINAL = 0
+  AND ITEM_NOTA_FISCAL.ICMS_VALOR  &gt; 0
+  AND (
+    NOTA_FISCAL.ID_NATUREZA_OPERACAO = 3
+    OR NOTA_FISCAL.ID_NATUREZA_OPERACAO IN (
+      SELECT CAST(TRIM(RESULT) AS INTEGER)
+      FROM SP_UTIL_SPLIT_STRING(:LISTA_NATUREZA_OPERACAO)
+    )
+  )
+  AND (PRODUTO.SUBSTITUICAO_TRIBUTARIA = 'N')
+
+UNION ALL
+
+SELECT
+  ITEM_NOTA_FISCAL.ID_PRODUTO,
+  ITEM_NOTA_FISCAL.ID_PRODUTO                                                                             AS DESCRICAO,
+  PRODUTO.PRECO                                                                                           AS ICMS_VALOR,
+  'ESTCRE'                                                                                                AS COD_OBS,
+  0                                                                                                       AS ICMS_ALIQUOTA,
+  0                                                                                                       AS ICMS_BASE_CALC,
+  'MG50000100'                                                                                            AS COD_AJ,
+  'Estorno de crédito, nos termos do inciso I do § 2º do art. 17 do e-PTA-RE nº 45.000045970-87'          AS DESCR_COMPL_AJ
+FROM ITEM_NOTA_FISCAL
+INNER JOIN PRODUTO     USING (ID_PRODUTO)
+INNER JOIN NOTA_FISCAL USING (ID_NOTA_FISCAL)
+WHERE NOTA_FISCAL.DATA_EMISSAO BETWEEN :DATA_INICIO AND :DATA_FIM
+  AND NOTA_FISCAL.STATUS                 = 'A'
+  AND NOTA_FISCAL.ID_NATUREZA_OPERACAO   = 12</code></pre>
