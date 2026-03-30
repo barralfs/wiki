@@ -2,7 +2,7 @@
 title: Segunda Instância Firebird [Atualizado]
 description: 
 published: true
-date: 2026-03-30T19:35:44.089Z
+date: 2026-03-30T19:46:42.759Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-03-30T19:35:44.089Z
@@ -15,7 +15,7 @@ dateCreated: 2026-03-30T19:35:44.089Z
 </blockquote>
 <figure class="image"><img src="/segundainstanciafirebirdatualizado/instalação_fb3.png"></figure>
 <p><strong>Passo 2</strong>: Encontramos o arquivo 'firebird.conf' (1) e abrimos ele com o bloco de notas (2). Realizamos uma busca (3) e encontramos a #RemoteServicePort = 3050(4).</p>
-<figure class="image image_resized" style="width:22.95%;"><img src="/segundainstanciafirebirdatualizado/fb2.png"></figure>
+<figure class="image"><img src="/segundainstanciafirebirdatualizado/fb22.png"></figure>
 <p><strong>Passo 3</strong>: Removemos a '#' e depois trocamos a porta para 3052.</p>
 <p><strong>Final</strong>: Salvamos o bloco de notas com os campos editados conforme a imagem acima.</p>
 <p><span class="text-big">Configuração do Serviço</span></p>
@@ -23,20 +23,20 @@ dateCreated: 2026-03-30T19:35:44.089Z
 <blockquote>
   <p>cd C:\Program Files\Firebird\Firebird_3_0</p>
 </blockquote>
-<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb.png"></figure>
+<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_11.png"></figure>
 <p><strong>Passo 2</strong>: Inserir o comando de instalação do firebird.</p>
 <blockquote>
   <p>instreg install</p>
 </blockquote>
-<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_3.png"></figure>
+<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_33.png"></figure>
 <p><strong>Passo 3</strong>: Inserir o comando de instalação do serviço.</p>
 <blockquote>
   <p>instsvc install -auto -name Firebird_Frontsys</p>
 </blockquote>
-<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_4.png"></figure>
+<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_444.png"></figure>
 <p><strong>Passo 4</strong>: Inserir o comando de execução do serviço.</p>
 <blockquote>
   <p>instsvc start -name Firebird_Frontsys</p>
 </blockquote>
-<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_5.png"></figure>
+<figure class="image"><img src="/segundainstanciafirebirdatualizado/cmd_fb_55.png"></figure>
 <p><strong>Final</strong>: fechar a tela de CMD.</p>
