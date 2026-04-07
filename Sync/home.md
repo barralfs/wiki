@@ -2,7 +2,7 @@
 title: Home
 description: 
 published: true
-date: 2026-02-27T12:26:34.410Z
+date: 2026-04-07T17:24:25.023Z
 tags: sync
 editor: markdown
 dateCreated: 2026-01-26T17:53:12.125Z
@@ -14,6 +14,7 @@ dateCreated: 2026-01-26T17:53:12.125Z
 
 ## 📘 Manuais
 - [Manual Básico – Utilização do Sync](/Sync/manual-basico)
+- [Scripts importantes](/Sync/scripts-importantes)
 
 ## ⚙️ Configurações
 - [Abrir Sync sem AutoUpdate](/Sync/abrir-sync-sem-auto-update)
