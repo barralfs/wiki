@@ -1,0 +1,64 @@
+<!--
+title: Scripts importantes
+description: 
+published: true
+date: 2026-04-07T14:27:59.976Z
+tags: sync
+editor: ckeditor
+dateCreated: 2026-04-07T14:27:59.976Z
+-->
+
+<h1>Scripts importantes</h1>
+<ul>
+  <li>Tabela com resumo dos documentos fiscais</li>
+</ul>
+<pre><code class="language-plaintext">SELECT * FROM NOTA_FISCAL_DESTINADA</code></pre>
+<ul>
+  <li>Tabela com todas as informações dos documentos fiscais</li>
+</ul>
+<pre><code class="language-plaintext">SELECT * FROM NOTA_FISCAL</code></pre>
+<ul>
+  <li>Script para excluir Resumo NFSe NAO IDENTIFICADO ou AGUARDANDO DISPONIBILIDADE</li>
+</ul>
+<pre><code class="language-plaintext">SELECT * FROM NOTA_FISCAL_DESTINADA
+WHERE MODELO = 98
+AND RAZAO_SOCIAL = 'NAO IDENTIFICADO'</code></pre>
+<pre><code class="language-plaintext">DELETE FROM NOTA_FISCAL_DESTINADA
+WHERE MODELO = 98
+AND RAZAO_SOCIAL = 'NAO IDENTIFICADO'</code></pre>
+<p>&nbsp;</p>
+<pre><code class="language-plaintext">SELECT * FROM NOTA_FISCAL_DESTINADA
+WHERE MODELO = 98
+AND RAZAO_SOCIAL LIKE '%AGUARDANDO DISPONIBILIDADE%'</code></pre>
+<pre><code class="language-plaintext">DELETE FROM NOTA_FISCAL_DESTINADA
+WHERE MODELO = 98
+AND RAZAO_SOCIAL LIKE '%AGUARDANDO DISPONIBILIDADE%'</code></pre>
+<ul>
+  <li>Script para excluir Documento Completo NFSe NAO IDENTIFICADO ou AGUARDANDO DISPONIBILIDADE</li>
+</ul>
+<pre><code class="language-plaintext">SELECT * FROM NOTA_FISCAL
+WHERE MODELO = 98
+AND NUMERO = ''
+AND CHAVE_ACESSO = ''</code></pre>
+<pre><code class="language-plaintext">DELETE NOTA_FISCAL
+WHERE MODELO = 98
+AND NUMERO = ''
+AND CHAVE_ACESSO = ''</code></pre>
+<ul>
+  <li>Resetar NSU de NFSe</li>
+</ul>
+<pre><code class="language-plaintext">SELECT * FROM CONFIG
+WHERE NOME LIKE '%NSU_NFSE%'</code></pre>
+<pre><code class="language-plaintext">UPDATE CONFIG SET VALOR = 0
+WHERE NOME LIKE '%NSU_NFSE%'</code></pre>
+<ul>
+  <li>Apagar Schema_History</li>
+</ul>
+<pre><code class="language-plaintext">SELECT * FROM SCHEMA_HISTORY
+ORDER BY VERSAO</code></pre>
+<pre><code class="language-plaintext">DELETE FROM SCHEMA_HISTORY
+WHERE VERSAO &gt;= 30</code></pre>
+<ul>
+  <li>Apagar número da versão atual do Sync, para permitir instalar versões anteriores</li>
+</ul>
+<pre><code class="language-plaintext">DELETE FROM ARQUIVO</code></pre>
